@@ -119,7 +119,6 @@ h6 {
   content: "\e906";
   color: rgba(255, 255, 255, 0.65);
   font-size: 25px;
-  margin-left: 20px;
 }
 
 .icon-search:before {
@@ -172,6 +171,14 @@ h6 {
   .header__menu {
     order: 1;
     flex: 0;
+  }
+}
+.header__link + .header__link {
+  margin-left: 20px;
+}
+@media (max-width: 890px) {
+  .header__link + .header__link {
+    margin-left: 17px;
   }
 }
 @media (max-width: 890px) {
@@ -239,6 +246,9 @@ h6 {
   .menu__item + .menu__item {
     margin-left: 0;
   }
+}
+.menu__item:hover {
+  color: #fff;
 }
 .menu__item:hover .menu__link {
   color: #fff;
