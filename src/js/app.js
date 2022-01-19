@@ -6,6 +6,8 @@ flsFunctions.addTouchClass();
 
 flsFunctions.menuInit();
 
-flsFunctions.subMenu()
+flsFunctions.subMenu();
 
-flsFunctions.popup()
+flsFunctions.popup();
+
+flsFunctions.slider();

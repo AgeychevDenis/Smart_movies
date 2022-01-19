@@ -58,15 +58,76 @@ export function popup() {
 	let close = document.querySelector('.close');
 
 	search.addEventListener('click', function () {
-		popup.classList.add('active')
-	})
+		popup.classList.add('active');
+	});
 	close.addEventListener('click', function () {
-		popup.classList.remove('active')
-	})
+		popup.classList.remove('active');
+	});
 	window.addEventListener('click', function (e) {
 		if (e.target == popup) {
-			popup.classList.remove('active')
-		}
-	})
+			popup.classList.remove('active');
+		};
+	});
+}
 
+// Модуль с слайдером
+export function slider() {
+	window.addEventListener('load', function () {
+
+		let s1 = new Slider('.gallery-1');
+		// s1.start(10000);
+
+	});
+
+	class Slider {
+		constructor(selector) {
+			this.rootElem = document.querySelector(selector);
+			this.images = this.rootElem.querySelectorAll('.photos img');
+			this.interval = null;
+			this.i = 0;
+			this.initControls();
+		}
+
+		initControls() {
+			this.btnPrev = this.rootElem.querySelector('.buttons .prev');
+			this.btnNext = this.rootElem.querySelector('.buttons .next');
+
+			this.btnPrev.addEventListener('click', () => this.prev());
+			this.btnNext.addEventListener('click', () => this.next());
+		}
+
+		prev() {
+			this.images[this.i].classList.remove('showed');
+			this.i--;
+
+			if (this.i < 0) {
+				this.i = this.images.length - 1;
+			}
+
+			this.images[this.i].classList.add('showed');
+		}
+
+		next() {
+			this.images[this.i].classList.remove('showed');
+			this.i++;
+
+			if (this.i >= this.images.length) {
+				this.i = 0;
+			}
+
+			this.images[this.i].classList.add('showed');
+		}
+
+		start(rate) {
+			this.stop();
+
+			this.interval = setInterval(() => {
+				this.next();
+			}, rate);
+		}
+
+		stop() {
+			clearInterval(this.interval);
+		}
+	}
 }
