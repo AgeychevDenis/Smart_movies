@@ -49,4 +49,24 @@ export function subMenu() {
 		})
 	}
 	)
-} 
+}
+
+// Модуль с попапом 
+export function popup() {
+	let search = document.querySelector('[data-search]');
+	let popup = document.querySelector('.popup');
+	let close = document.querySelector('.close');
+
+	search.addEventListener('click', function () {
+		popup.classList.add('active')
+	})
+	close.addEventListener('click', function () {
+		popup.classList.remove('active')
+	})
+	window.addEventListener('click', function (e) {
+		if (e.target == popup) {
+			popup.classList.remove('active')
+		}
+	})
+
+}
