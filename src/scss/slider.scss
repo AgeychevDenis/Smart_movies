@@ -6,17 +6,75 @@
 
 .gallery .photos {
    position: relative;
-   height: 500px;
+}
+
+.gallery .photos a {
+   visibility: hidden;
+   transition: all 1s;
+   opacity: 0;
+   position: absolute;
+   left: 0;
+   width: 100%;
 }
 
 .gallery .photos img {
    width: 100%;
-   position: absolute;
-   left: 0;
-   opacity: 0;
-   transition: opacity 1s;
+   border-radius: 15px;
 }
 
-.gallery .photos img.showed {
+.gallery .photos a.showed {
+   visibility: visible;
    opacity: 1;
+}
+
+.slider {
+   width: 100%;
+   height: 550px;
+   margin-bottom: 40px;
+   @media (max-width: 1320px) {
+      height: 42vw;
+   }
+   /* .slider__container */
+   &__container {
+      position: relative;
+   }
+   /* .slider__buttons-prev */
+   &__buttons-prev,
+   &__buttons-next {
+      position: absolute;
+      margin-top: 18%;
+      @media (max-width: 640px) {
+         margin-top: 16%;
+      }
+   }
+   /* .slider__buttons-next */
+   &__buttons-next {
+      right: -20px;
+      @media (max-width: 1400px) {
+         right: 30px;
+      }
+   }
+   &__buttons-prev {
+      left: -20px;
+      @media (max-width: 1400px) {
+         left: 30px;
+      }
+   }
+}
+
+.icon-arrow-left::before,
+.icon-arrow-right::before {
+   color: rgba(255, 255, 255, 0.65);
+   font-size: 35px;
+   transition: color 0.3s;
+   @media (max-width: 1400px) {
+      color: #fff;
+   }
+   @media (max-width: 890px) {
+      font-size: 25px;
+   }
+}
+.icon-arrow-left:hover::before,
+.icon-arrow-right:hover::before {
+   color: #fff;
 }

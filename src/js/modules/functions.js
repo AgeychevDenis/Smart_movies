@@ -57,13 +57,13 @@ export function popup() {
 	let popup = document.querySelector('.popup');
 	let close = document.querySelector('.close');
 
-	search.addEventListener('click', function () {
+	search.addEventListener('click', () => {
 		popup.classList.add('active');
 	});
-	close.addEventListener('click', function () {
+	close.addEventListener('click', () => {
 		popup.classList.remove('active');
 	});
-	window.addEventListener('click', function (e) {
+	window.addEventListener('click', (e) => {
 		if (e.target == popup) {
 			popup.classList.remove('active');
 		};
@@ -72,7 +72,7 @@ export function popup() {
 
 // Модуль с слайдером
 export function slider() {
-	window.addEventListener('load', function () {
+	window.addEventListener('load', () => {
 
 		let s1 = new Slider('.gallery-1');
 		// s1.start(10000);
@@ -82,15 +82,15 @@ export function slider() {
 	class Slider {
 		constructor(selector) {
 			this.rootElem = document.querySelector(selector);
-			this.images = this.rootElem.querySelectorAll('.photos img');
+			this.images = this.rootElem.querySelectorAll('.photos a');
 			this.interval = null;
 			this.i = 0;
 			this.initControls();
 		}
 
 		initControls() {
-			this.btnPrev = this.rootElem.querySelector('.buttons .prev');
-			this.btnNext = this.rootElem.querySelector('.buttons .next');
+			this.btnPrev = this.rootElem.querySelector('.slider__buttons .slider__buttons-prev');
+			this.btnNext = this.rootElem.querySelector('.slider__buttons .slider__buttons-next');
 
 			this.btnPrev.addEventListener('click', () => this.prev());
 			this.btnNext.addEventListener('click', () => this.next());

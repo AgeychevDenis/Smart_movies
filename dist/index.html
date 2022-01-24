@@ -10,8 +10,8 @@
 
 <body>
 	<div class="page">
-		<header>
-   <div class="header__container container">
+		<header class="header">
+   <div class="header__container">
       <a href="#" class="header__logo">
          <img src="../img/header/logo.svg" alt="Логотип">
       </a>
@@ -76,17 +76,63 @@
 </header>
 		<main>
 			<section class="slider">
-				<div class="container">
+				<div class="slider__container container">
 					<div class="gallery gallery-1">
 						<div class="photos">
-							<img src="img/slider/1.jpg" class="showed" alt="">
-							<img src="img/slider/2.jpg" alt="">
-							<img src="img/slider/3.jpg" alt="">
+							<a href="index.html" class="showed">
+								<img src="img/slider/slide_1.jpg" alt="">
+							</a>
+							<a href="https://yandex.ru/">
+								<img src="img/slider/slide_2.jpg" alt="">
+							</a>
+							<a href="https://e.mail.ru/">
+								<img src="img/slider/slide_3.jpg" alt="">
+							</a>
 						</div>
-						<div class="buttons">
-							<button type="button" value="Назад" class="prev">Назад</button>
-							<button type="button" value="Вперёд" class="next">Вперёд</button>
+						<div class="slider__buttons">
+							<button class="slider__buttons-prev icon-arrow-left"></button>
+							<button class="slider__buttons-next icon-arrow-right"></button>
 						</div>
+					</div>
+				</div>
+			</section>
+			<section class="promo">
+				<div class="promo__container container">
+					<h2 class="promo__title icon-square">Рекомендуем вам посмотреть</h2>
+					<div class="promo__wrapper">
+						<a href="#" class="promo__card">
+							<img src="img/promo/promo-img_1.jpg" alt="promo">
+							<div class="promo__content">
+								<p class="promo__content-rating">7,<span>6</span><img src="img/icon/sort.svg" alt="sort"></p>
+								<p class="promo__content-year">2021</p>
+								<p class="promo__content-country">Россия</p>
+								<p class="promo__content-time">88 минут</p>
+							</div>
+							<h4 class="promo__wrapper-title">Небо</h4>
+							<p class="promo__wrapper-subtitle">Боевик, драма</p>
+						</a>
+						<a href="#" class="promo__card">
+							<img src="img/promo/promo-img_1.jpg" alt="promo">
+							<div class="promo__content">
+								<p class="promo__content-rating">7,<span>6</span><img src="img/icon/sort.svg" alt="sort"></p>
+								<p class="promo__content-year">2021</p>
+								<p class="promo__content-country">Россия</p>
+								<p class="promo__content-time">88 минут</p>
+							</div>
+							<h4 class="promo__wrapper-title">Небо</h4>
+							<p class="promo__wrapper-subtitle">Боевик, драма</p>
+						</a>
+						<a href="#" class="promo__card">
+							<img src="img/promo/promo-img_1.jpg" alt="promo">
+							<div class="promo__content">
+								<p class="promo__content-rating">7,<span>6</span><img src="img/icon/sort.svg" alt="sort"></p>
+								<p class="promo__content-year">2021</p>
+								<p class="promo__content-country">Россия</p>
+								<p class="promo__content-time">88 минут</p>
+							</div>
+							<h4 class="promo__wrapper-title">Небо</h4>
+							<p class="promo__wrapper-subtitle">Боевик, драма</p>
+						</a>
 					</div>
 				</div>
 			</section>
