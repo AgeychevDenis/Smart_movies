@@ -11,3 +11,5 @@ flsFunctions.subMenu();
 flsFunctions.popup();
 
 flsFunctions.slider();
+
+flsFunctions.promoSlider();

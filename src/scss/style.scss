@@ -45,10 +45,15 @@
    }
    /* .promo__slider */
    &__slider {
+      overflow: hidden;
    }
    /* .promo__wrapper */
    &__wrapper {
       display: flex;
+      position: relative;
+      margin-bottom: 50px;
+      transition: all 0.3s;
+      left: 0;
    }
    /* .promo__card */
    &__card {
@@ -57,7 +62,7 @@
       margin-right: 16px;
       position: relative;
       & img {
-         width: 100%;
+         width: 200px;
          border-radius: 10px;
          transition: all 0.3s;
       }

@@ -130,10 +130,59 @@ export function slider() {
 			clearInterval(this.interval);
 		}
 	}
-	// class PromoSlider extends Slider {
-	// 	constructor(selector) {
-	// 		super(selector)
-	// 		this.images = this.rootElem.querySelectorAll('.promo__wrapper');
-	// 	}
-	// }
+}
+
+// Модуль с промослайдером
+export function promoSlider() {
+	let offset = 0;
+	const sliderLine = document.querySelector('.promo__wrapper');
+
+	document.querySelector('.promo__buttons .promo__buttons-next').addEventListener('click', () => {
+		let widthScreen = window.screen.width
+
+		if (widthScreen >= 1110 && widthScreen <= 1320) {
+			offset += 1080
+		} else if (widthScreen >= 888 && widthScreen <= 1109) {
+			offset += 864
+		} else if (widthScreen >= 675 && widthScreen <= 887) {
+			offset += 648
+		} else if (widthScreen >= 460 && widthScreen <= 674) {
+			offset += 432
+		} else if (widthScreen >= 0 && widthScreen <= 459) {
+			offset += 216
+		} else {
+			offset += 1296
+		}
+
+		if (offset > 2160) {
+			offset = 0;
+		}
+
+		sliderLine.style.left = -offset + 'px'
+	})
+
+	document.querySelector('.promo__buttons .promo__buttons-prev').addEventListener('click', () => {
+		let widthScreen = window.screen.width
+
+		if (widthScreen >= 1110 && widthScreen <= 1320) {
+			offset -= 1080
+		} else if (widthScreen >= 888 && widthScreen <= 1109) {
+			offset -= 864
+		} else if (widthScreen >= 675 && widthScreen <= 887) {
+			offset -= 648
+		} else if (widthScreen >= 460 && widthScreen <= 674) {
+			offset -= 432
+		} else if (widthScreen >= 0 && widthScreen <= 459) {
+			offset -= 216
+		} else {
+			offset -= 1296
+		}
+
+		if (offset < 0) {
+			offset = 1296;
+		}
+		sliderLine.style.left = -offset + 'px'
+		console.log(offset);
+	})
+
 }

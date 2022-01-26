@@ -630,8 +630,15 @@ html.mouse .menu__item:hover .sub-menu__list {
   top: 14px;
   font-size: 12px;
 }
+.promo__slider {
+  overflow: hidden;
+}
 .promo__wrapper {
   display: flex;
+  position: relative;
+  margin-bottom: 50px;
+  transition: all 0.3s;
+  left: 0;
 }
 .promo__card {
   width: 200px;
@@ -640,7 +647,7 @@ html.mouse .menu__item:hover .sub-menu__list {
   position: relative;
 }
 .promo__card img {
-  width: 100%;
+  width: 200px;
   border-radius: 10px;
   transition: all 0.3s;
 }
