@@ -605,6 +605,7 @@ html.mouse .menu__item:hover .sub-menu__list {
   height: 1700px;
   /* .promo__container */
   /* .promo__title */
+  /* .promo__slider */
   /* .promo__wrapper */
   /* .promo__card */
   /* .promo__content */
@@ -631,7 +632,6 @@ html.mouse .menu__item:hover .sub-menu__list {
 }
 .promo__wrapper {
   display: flex;
-  flex-wrap: wrap;
 }
 .promo__card {
   width: 200px;

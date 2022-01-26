@@ -130,4 +130,10 @@ export function slider() {
 			clearInterval(this.interval);
 		}
 	}
+	// class PromoSlider extends Slider {
+	// 	constructor(selector) {
+	// 		super(selector)
+	// 		this.images = this.rootElem.querySelectorAll('.promo__wrapper');
+	// 	}
+	// }
 }

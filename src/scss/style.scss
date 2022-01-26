@@ -43,10 +43,12 @@
          font-size: 12px;
       }
    }
+   /* .promo__slider */
+   &__slider {
+   }
    /* .promo__wrapper */
    &__wrapper {
       display: flex;
-      flex-wrap: wrap;
    }
    /* .promo__card */
    &__card {
