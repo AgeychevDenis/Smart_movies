@@ -179,10 +179,9 @@ export function promoSlider() {
 		}
 
 		if (offset < 0) {
-			offset = 1296;
+			offset = 1728;
 		}
 		sliderLine.style.left = -offset + 'px'
-		console.log(offset);
 	})
 
 }
