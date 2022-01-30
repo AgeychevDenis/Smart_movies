@@ -165,7 +165,7 @@ export function promoSlider() {
 		let widthScreen = window.screen.width
 
 		if (widthScreen >= 1110 && widthScreen <= 1320) {
-			offset -= 1080
+			offset -= 216
 		} else if (widthScreen >= 888 && widthScreen <= 1109) {
 			offset -= 864
 		} else if (widthScreen >= 675 && widthScreen <= 887) {
