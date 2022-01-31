@@ -1,5 +1,5 @@
 .header {
-   z-index: 1;
+   z-index: 5;
    /* .header__container */
    &__container {
       display: flex;
@@ -38,6 +38,10 @@
          text-align: end;
       }
    }
+}
+
+.menu__body.active body {
+   overflow-y: hidden;
 }
 
 .menu {

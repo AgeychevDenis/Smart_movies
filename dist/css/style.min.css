@@ -148,7 +148,7 @@ h6 {
 }
 
 .header {
-  z-index: 1;
+  z-index: 5;
   /* .header__container */
   /* .header__logo */
   /* .header__menu */
@@ -189,6 +189,10 @@ h6 {
     flex: 1;
     text-align: end;
   }
+}
+
+.menu__body.active body {
+  overflow-y: hidden;
 }
 
 .menu {
@@ -707,6 +711,10 @@ html.mouse .menu__item:hover .sub-menu__list {
   }
 }
 
+.overflow-hidden {
+  overflow-y: hidden;
+}
+
 .promo {
   margin-bottom: 55px;
   /* .promo__container */
@@ -877,7 +885,7 @@ html.mouse .menu__item:hover .sub-menu__list {
   border-radius: 9px;
 }
 .collection__item:hover {
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 @media (max-width: 1023px) {
   .collection__item {

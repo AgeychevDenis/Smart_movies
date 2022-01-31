@@ -23,12 +23,14 @@ export function addTouchClass() {
 
 // Модуль работы с меню (бургер)
 export function menuInit() {
-	let iconMenu = document.querySelector(".icon-menu");
-	let menuBody = document.querySelector(".menu__body");
+	const iconMenu = document.querySelector(".icon-menu"),
+		menuBody = document.querySelector(".menu__body"),
+		body = document.querySelector('body');
 
 	iconMenu.addEventListener('click', function () {
 		iconMenu.classList.toggle('active');
 		menuBody.classList.toggle('active');
+		body.classList.toggle('overflow-hidden')
 	})
 }
 
@@ -53,19 +55,23 @@ export function subMenu() {
 
 // Модуль с попапом 
 export function popup() {
-	let search = document.querySelector('[data-search]');
-	let popup = document.querySelector('.popup');
-	let close = document.querySelector('.close');
+	const search = document.querySelector('[data-search]'),
+		popup = document.querySelector('.popup'),
+		close = document.querySelector('.close'),
+		body = document.querySelector('body');
 
 	search.addEventListener('click', () => {
 		popup.classList.add('active');
+		body.classList.add('overflow-hidden')
 	});
 	close.addEventListener('click', () => {
 		popup.classList.remove('active');
+		body.classList.remove('overflow-hidden')
 	});
 	window.addEventListener('click', (e) => {
 		if (e.target == popup) {
 			popup.classList.remove('active');
+			body.classList.remove('overflow-hidden')
 		};
 	});
 }
