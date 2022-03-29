@@ -1,0 +1,22 @@
+.promo {
+   margin-bottom: 55px;
+   /* .promo__container */
+   &__container {
+   }
+   /* .promo__title */
+   &__title {
+   }
+   /* .promo__slider */
+   &__slider {
+      overflow: hidden;
+      padding-top: 20px;
+   }
+   /* .promo__wrapper */
+   &__wrapper {
+      display: flex;
+      position: relative;
+      margin-bottom: 50px;
+      transition: all 0.3s;
+      left: 0;
+   }
+}

@@ -1,0 +1,29 @@
+.content {
+   /* .content__container */
+   &__container {
+   }
+   /* .content__wrapper */
+   &__wrapper {
+   }
+   /* .content__title */
+   &__title {
+      transition: color 0.3s;
+      &:hover {
+         color: #2756fd;
+      }
+      &:hover.icon-square:before {
+         color: #2756fd;
+      }
+   }
+   /* .content__inner */
+   &__inner {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      justify-content: space-between;
+      @media (max-width: 625px) {
+         max-width: 385px;
+         margin: 20px auto;
+      }
+   }
+}

@@ -1,52 +1,39 @@
 {
-	"name": "gulp-2022",
-	"version": "1.0.0",
-	"description": "",
-	"main": "gulpfile.js",
-	"type": "module",
-	"scripts": {
-		"dev": "gulp",
-		"build": "gulp build --build",
-		"zip": "gulp deployZIP --build",
-		"deploy": "gulp deployFTP --build",
-		"svgSprive": "gulp svgSprive"
-	},
-	"author": "FLS",
-	"license": "ISC",
-	"dependencies": {
-		"gulp-cli": "^2.3.0"
-	},
-	"devDependencies": {
-		"browser-sync": "latest",
-		"del": "latest",
-		"gulp": "latest",
-		"gulp-autoprefixer": "latest",
-		"gulp-clean-css": "latest",
-		"gulp-file-include": "latest",
-		"gulp-fonter-fix": "latest",
-		"gulp-group-css-media-queries": "latest",
-		"gulp-if": "latest",
-		"gulp-imagemin": "latest",
-		"gulp-newer": "latest",
-		"gulp-notify": "latest",
-		"gulp-plumber": "latest",
-		"gulp-pug": "latest",
-		"gulp-rename": "latest",
-		"gulp-replace": "latest",
-		"gulp-sass": "latest",
-		"gulp-svg-sprite": "latest",
-		"gulp-ttf2woff2": "latest",
-		"gulp-util": "latest",
-		"gulp-version-number": "latest",
-		"gulp-webp": "latest",
-		"gulp-webp-html-nosvg": "latest",
-		"gulp-webpcss": "latest",
-		"gulp-zip": "latest",
-		"sass": "latest",
-		"swiper": "latest",
-		"vinyl-ftp": "latest",
-		"webp-converter": "2.2.3",
-		"webpack": "latest",
-		"webpack-stream": "latest"
-	}
+  "name": "react-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.15.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "node-sass": "^6.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.1.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
