@@ -4,8 +4,9 @@ import PromoCard from './promo-card/promo-card';
 const Promo = ({ data }) => {
 
    const elements = data.map(item => {
+      const { id, ...itemProps } = item
       return (
-         <PromoCard {...item} />
+         <PromoCard key={id} {...itemProps} />
       )
    })
 

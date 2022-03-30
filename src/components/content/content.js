@@ -4,8 +4,9 @@ import CollectionItem from './collection-item/collection-item';
 const Content = ({ dataCollection }) => {
 
    const elements = dataCollection.map(item => {
+      const { id, ...itemProps } = item
       return (
-         <CollectionItem {...item} />
+         <CollectionItem key={id} {...itemProps} />
       )
    })
 
