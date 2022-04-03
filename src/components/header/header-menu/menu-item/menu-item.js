@@ -48,7 +48,7 @@ class MenuItem extends Component {
 const SubMenuItem = ({ subtitle }) => {
    return (
       <li className="sub-menu__item">
-         <a href="#" className="sub-menu__link">{subtitle}</a>
+         <a className="sub-menu__link">{subtitle}</a>
       </li>
    )
 }

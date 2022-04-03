@@ -8,41 +8,41 @@ const Footer = () => {
                <div className="footer__top-social social">
                   <ul className="social-list">
                      <li className="social-list__item">
-                        <a href="#" className="social-list__link icon-vk"></a>
+                        <a className="social-list__link icon-vk"></a>
                      </li>
                      <li className="social-list__item">
-                        <a href="#" className="social-list__link icon-facebook"></a>
+                        <a className="social-list__link icon-facebook"></a>
                      </li>
                      <li className="social-list__item">
-                        <a href="#" className="social-list__link icon-twitter"></a>
+                        <a className="social-list__link icon-twitter"></a>
                      </li>
                      <li className="social-list__item">
-                        <a href="#" className="social-list__link icon-instagram"></a>
+                        <a className="social-list__link icon-instagram"></a>
                      </li>
                      <li className="social-list__item">
-                        <a href="#" className="social-list__link icon-youtube"></a>
+                        <a className="social-list__link icon-youtube"></a>
                      </li>
                   </ul>
                </div>
                <div className="footer__top-list">
                   <ul className="footer-list">
                      <li className="footer-list__item">
-                        <a href="" className="footer-list__link">Подборки</a>
+                        <a className="footer-list__link">Подборки</a>
                      </li>
                      <li className="footer-list__item">
-                        <a href="" className="footer-list__link">Трейлеры</a>
+                        <a className="footer-list__link">Трейлеры</a>
                      </li>
                      <li className="footer-list__item">
-                        <a href="" className="footer-list__link">Сериалы</a>
+                        <a className="footer-list__link">Сериалы</a>
                      </li>
                      <li className="footer-list__item">
-                        <a href="" className="footer-list__link">Актеры</a>
+                        <a className="footer-list__link">Актеры</a>
                      </li>
                      <li className="footer-list__item">
-                        <a href="" className="footer-list__link">Контакты</a>
+                        <a className="footer-list__link">Контакты</a>
                      </li>
                      <li className="footer-list__item">
-                        <a href="" className="footer-list__link">О нас</a>
+                        <a className="footer-list__link">О нас</a>
                      </li>
                   </ul>
                </div>

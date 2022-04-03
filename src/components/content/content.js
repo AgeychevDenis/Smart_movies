@@ -14,7 +14,7 @@ const Content = ({ dataCollection }) => {
       <section className="content">
          <div className="content__container container">
             <div className="content__wrapper">
-               <a href="#" className="content__title title icon-square">
+               <a className="content__title title icon-square">
                   Подборки
                </a>
                <div className="content__inner collection">
