@@ -12,12 +12,7 @@ function App() {
    Device();
 
    const data = [
-      { imageUrl: 'https://ia.wampi.ru/2022/03/29/promo-img_1.jpg', rating: '7,2', id: 1, year: '2021', country: 'Россия', time: '2 часа 06 минут', title: 'Небо', subtitle: 'Боевик, драма' },
-      { imageUrl: 'https://ie.wampi.ru/2022/03/29/promo-img_2.jpg', rating: '7,8', id: 2, year: '2020', country: 'Россия', time: '54 митуты/серия', title: 'Перевал Дятлова', subtitle: 'Триллер' },
-      { imageUrl: 'https://ia.wampi.ru/2022/03/29/promo-img_5.jpg', rating: '7,7', id: 3, year: '2021', country: 'США, Канада, Венгрия', time: '2 час 35 минут', title: 'Дюна', subtitle: 'Фантастика, боевик, драма' },
-      { imageUrl: 'https://ia.wampi.ru/2022/03/29/promo-img_3.jpg', rating: '7,6', id: 4, year: '2021', country: 'Россия', time: '52 митуты/серия', title: 'Триггер', subtitle: 'Драма' },
-      { imageUrl: 'https://ie.wampi.ru/2022/03/29/promo-img_4.jpg', rating: '7,5', id: 5, year: '2020', country: 'Россия', time: '60 митуты/серия', title: 'Ваша честь', subtitle: 'Триллер, драма, криминал' },
-      { imageUrl: 'https://ia.wampi.ru/2022/03/29/promo-img_6.webp', rating: '7,2', id: 6, year: '2021', country: 'Великобритания, США', time: '1 час 55 минут', title: 'Финч', subtitle: 'Фантастика, драма' },
+      { imageUrl: 'https://ia.wampi.ru/2022/03/29/promo-img_1.jpg', rating: '7,2', id: 1, year: '2021', country: 'Россия', time: '2 часа 06 минут', title: 'Небо', subtitle: 'Боевик, драма' }
    ];
 
    const dataCollection = [

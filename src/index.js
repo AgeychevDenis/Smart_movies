@@ -1,10 +1,12 @@
 import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app/app';
-import TheMovieService from './services/the-movie-service';
+// import KinopoiskService from './services/kinopoisk-server';
 import './index.scss';
 
-TheMovieService();
+// const kinopoiskвService = new KinopoiskService;
+
+// kinopoiskвService.getAllCharacters().then(res => res.films.forEach(item => console.log(item)))
 
 ReactDOM.render(
   <StrictMode>
