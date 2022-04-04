@@ -1,14 +1,7 @@
 import './promo.scss';
 import PromoCard from './promo-card/promo-card';
 
-const Promo = ({ data }) => {
-
-   const elements = data.map(item => {
-      const { id, ...itemProps } = item
-      return (
-         <PromoCard key={id} {...itemProps} />
-      )
-   })
+const Promo = () => {
 
    return (
       <section className="promo">
@@ -16,7 +9,7 @@ const Promo = ({ data }) => {
             <h2 className="promo__title title">Рекомендуем вам посмотреть</h2>
             <div className="promo__slider">
                <div className="promo__wrapper">
-                  {elements}
+                  <PromoCard />
                </div>
             </div>
             {/* <div className="promo__buttons">

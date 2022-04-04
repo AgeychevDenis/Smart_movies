@@ -11,10 +11,6 @@ function App() {
 
    Device();
 
-   const data = [
-      { imageUrl: 'https://ia.wampi.ru/2022/03/29/promo-img_1.jpg', rating: '7,2', id: 1, year: '2021', country: 'Россия', time: '2 часа 06 минут', title: 'Небо', subtitle: 'Боевик, драма' }
-   ];
-
    const dataCollection = [
       { imageUrl: 'https://ia.wampi.ru/2022/03/29/item-1.webp', title: 'Лучшие фильмы гoда', id: 1, subtitle: 'От народной комедии «Батя» до грандиозного фэнтези «Дюна»: собрали 21 лучший фильм, которые зрители Smart выбирали чаще других в уходящем году.' },
       { imageUrl: 'https://ie.wampi.ru/2022/03/29/item-2.webp', title: 'Супергеройское кино', id: 2, subtitle: 'Их работа — спасать мир! Герои Marvel, DC и других киновселенных в одной коллекции: от Железнего человека до злодейки Харли Квинн.' },
@@ -30,7 +26,7 @@ function App() {
    return (
       <div className="page">
          <Header />
-         <Promo data={data} />
+         <Promo />
          <Content dataCollection={dataCollection} />
          <Footer />
       </div>

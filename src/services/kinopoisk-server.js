@@ -1,5 +1,5 @@
 class KinopoiskService {
-   _apiKey = '95888346-d31c-438f-b3b4-23ac62a27afd';
+   _apiKey = 'e26ee2eb-f418-44d1-abcf-ce19e4e17c2e';
    _apiBase = 'https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1';
 
    getResource = async (url) => {
