@@ -29,8 +29,9 @@ class KinopoiskService {
 
    _transformCharacter = (res) => {
       return {
+         id: res.filmId,
          imageUrl: res.posterUrl,
-         rating: res.ratingKinopoisk,
+         rating: res.rating,
          year: res.year,
          country: res.countries[0].country,
          time: res.filmLength,
@@ -39,6 +40,8 @@ class KinopoiskService {
       }
    }
 }
+
+// .films.map(this._transformCharacter);
 
 
 

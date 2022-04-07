@@ -1,11 +1,5 @@
 .promo {
    margin-bottom: 55px;
-   /* .promo__container */
-   &__container {
-   }
-   /* .promo__title */
-   &__title {
-   }
    /* .promo__slider */
    &__slider {
       overflow: hidden;
@@ -19,4 +13,103 @@
       transition: all 0.3s;
       left: 0;
    }
+   /* .promo__card */
+   &__card {
+      width: 200px;
+      height: 280px;
+      margin-right: 16px;
+      position: relative;
+      &::before {
+         content: "";
+         opacity: 0;
+         position: absolute;
+         width: 100%;
+         height: 100%;
+         top: 0;
+         left: 0;
+         background-color: rgba(0, 1, 6, 0.8);
+         border-radius: 10px;
+         transition: all 0.3s;
+         z-index: 1;
+      }
+      &:hover::before {
+         opacity: 1;
+         transform: scale(1.05);
+      }
+      &:hover .promo__content {
+         opacity: 1;
+      }
+      &:hover img {
+         transform: scale(1.05);
+      }
+      &:hover .promo__wrapper-title {
+         color: #fff;
+      }
+      &:last-child {
+         margin-right: 0;
+      }
+      &:hover .promo__card-img {
+         transform: scale(1.05);
+      }
+   }
+   /* .promo__card-img */
+   &__card-img {
+      width: 200px;
+      height: 280px;
+      overflow: hidden;
+      border-radius: 10px;
+      transition: transform 0.3s;
+      & img {
+         width: 100%;
+         transition: all 0.3s;
+      }
+   }
+   /* .promo__content */
+   &__content {
+      opacity: 0;
+      transition: opacity 0.3s;
+      position: absolute;
+      bottom: 25px;
+      color: #ffffff;
+      padding: 0 10px 0 20px;
+      z-index: 2;
+   }
+   /* .promo__content-rating */
+   &__content-rating {
+      font-size: 22px;
+      font-weight: bold;
+      span {
+         font-size: 20px;
+      }
+      img {
+         width: 23px;
+         margin-left: 4px;
+      }
+   }
+   /* .promo__content */
+   &__content-year,
+   &__content-country,
+   &__content-time {
+      font-size: 15px;
+      font-weight: normal;
+      color: #ccc;
+      margin-top: 6px;
+   }
+   /* .promo__wrapper-title */
+   &__wrapper-title {
+      color: #ffffffe8;
+      padding-top: 12px;
+   }
+   /* .promo__wrapper-subtitle */
+   &__wrapper-subtitle {
+      font-weight: normal;
+      padding-top: 5px;
+      font-size: 14px;
+   }
+}
+.name-rating {
+   display: block;
+   font-size: 13px !important;
+   margin-bottom: 13px;
+   color: #ffffff73;
 }

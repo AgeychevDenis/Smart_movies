@@ -6,7 +6,7 @@ import './index.scss';
 
 // const kinopoiskвService = new KinopoiskService;
 
-// kinopoiskвService.getAllCharacters().then(res => res.films.forEach(item => console.log(item)))
+// kinopoiskвService.getAllCharacters().then(res => console.log(res))
 
 ReactDOM.render(
   <StrictMode>
