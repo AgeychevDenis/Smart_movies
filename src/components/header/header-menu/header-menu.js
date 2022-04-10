@@ -25,8 +25,6 @@ class HeaderMenu extends Component {
       }));
    }
 
-
-
    render() {
       const { active, data, data2 } = this.state;
 

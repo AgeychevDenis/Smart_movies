@@ -1,9 +1,9 @@
 import { Component } from 'react';
 import KinopoiskService from '../../services/kinopoisk-server';
 import ErrorMessage from '../error-message/error-message';
-import MyLoader from '../spinner/spinner';
-import PromoIcon from '../../assets/img/icon/sort.svg';
+import Skeleton from '../skeleton/skeleton';
 
+import PromoIcon from '../../assets/img/icon/sort.svg';
 import './promo.scss';
 
 class Promo extends Component {
@@ -52,7 +52,9 @@ class Promo extends Component {
                   <p className="promo__content-time">{item.time} минут</p>
                </div>
                <h4 className="promo__wrapper-title">{item.title}</h4>
-               <p className="promo__wrapper-subtitle">{item.genre}</p>
+               <p className="promo__wrapper-subtitle">
+                  {item.genre}
+               </p>
             </a>
          )
       });
@@ -67,8 +69,9 @@ class Promo extends Component {
       const { charList, loading, error } = this.state;
 
       const items = this.renderItems(charList);
+
       const errorMessage = error ? <ErrorMessage /> : null;
-      const spinner = loading ? <MyLoader /> : null;
+      const spinner = loading ? <Skeleton /> : null;
       const content = !(loading || error) ? items : null;
 
       return (

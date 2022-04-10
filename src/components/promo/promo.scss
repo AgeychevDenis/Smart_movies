@@ -105,6 +105,9 @@
       font-weight: normal;
       padding-top: 5px;
       font-size: 14px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
    }
 }
 .name-rating {

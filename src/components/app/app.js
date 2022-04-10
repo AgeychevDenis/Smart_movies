@@ -2,14 +2,13 @@ import Header from '../header/header';
 import Promo from '../promo/promo';
 import Content from '../content/content'
 import Footer from '../footer/footer';
-import Device from '../../modules/device';
 
 import './app.scss';
 import './fonts.scss';
 
 function App() {
 
-   Device();
+
 
    const dataCollection = [
       { imageUrl: 'https://ia.wampi.ru/2022/03/29/item-1.webp', title: 'Лучшие фильмы гoда', id: 1, subtitle: 'От народной комедии «Батя» до грандиозного фэнтези «Дюна»: собрали 21 лучший фильм, которые зрители Smart выбирали чаще других в уходящем году.' },
