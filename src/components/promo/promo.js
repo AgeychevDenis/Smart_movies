@@ -71,7 +71,7 @@ class Promo extends Component {
       const items = this.renderItems(charList);
 
       const errorMessage = error ? <ErrorMessage /> : null;
-      const spinner = loading ? <Skeleton /> : null;
+      const skeleton = loading ? Array(6).fill(0).map((_, i) => <Skeleton key={i} />) : null;
       const content = !(loading || error) ? items : null;
 
       return (
@@ -80,7 +80,7 @@ class Promo extends Component {
                <h2 className="promo__title title">Рекомендуем вам посмотреть</h2>
                <div className="promo__slider">
                   {errorMessage}
-                  {spinner}
+                  {skeleton}
                   {content}
                </div>
             </div>
@@ -88,4 +88,5 @@ class Promo extends Component {
       )
    }
 }
+
 export default Promo;

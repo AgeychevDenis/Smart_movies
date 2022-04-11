@@ -41,8 +41,6 @@ class KinopoiskService {
    }
 }
 
-// .films.map(this._transformCharacter);
-
 
 
 
