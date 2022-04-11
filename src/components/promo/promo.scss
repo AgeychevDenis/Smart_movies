@@ -16,15 +16,14 @@
    /* .promo__card */
    &__card {
       width: 200px;
-      height: 280px;
-      margin-right: 16px;
       position: relative;
+      cursor: pointer;
       &::before {
          content: "";
          opacity: 0;
          position: absolute;
          width: 100%;
-         height: 100%;
+         height: 280px;
          top: 0;
          left: 0;
          background-color: rgba(0, 1, 6, 0.8);
@@ -69,17 +68,20 @@
       opacity: 0;
       transition: opacity 0.3s;
       position: absolute;
-      bottom: 25px;
+      bottom: 85px;
       color: #ffffff;
       padding: 0 10px 0 20px;
       z-index: 2;
    }
    /* .promo__content-rating */
    &__content-rating {
-      font-size: 22px;
+      font-size: 20px;
       font-weight: bold;
+      &:first-letter {
+         font-size: 22px;
+      }
       span {
-         font-size: 20px;
+         font-size: 16px;
       }
       img {
          width: 23px;

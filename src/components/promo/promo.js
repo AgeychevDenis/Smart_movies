@@ -1,9 +1,12 @@
 import { Component } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
 import KinopoiskService from '../../services/kinopoisk-server';
 import ErrorMessage from '../error-message/error-message';
 import Skeleton from '../skeleton/skeleton';
 
 import PromoIcon from '../../assets/img/icon/sort.svg';
+import './swiper.scss'
 import './promo.scss';
 
 class Promo extends Component {
@@ -39,7 +42,7 @@ class Promo extends Component {
       const items = arr.map((item) => {
 
          return (
-            <a className="promo__card" key={item.id}>
+            <SwiperSlide className="promo__card" key={item.id}>
                <div className="promo__card-img">
                   <img src={item.imageUrl} alt="promo" />
                </div>
@@ -55,7 +58,7 @@ class Promo extends Component {
                <p className="promo__wrapper-subtitle">
                   {item.genre}
                </p>
-            </a>
+            </SwiperSlide>
          )
       });
       return (
@@ -79,12 +82,28 @@ class Promo extends Component {
             <div className="promo__container container">
                <h2 className="promo__title title">Рекомендуем вам посмотреть</h2>
                <div className="promo__slider">
-                  {errorMessage}
-                  {skeleton}
-                  {content}
+                  <Swiper
+                     spaceBetween={16}
+                     slidesPerView={6}
+                     navigation
+                     breakpoints={{
+                        320: {
+                           width: 200,
+                           slidesPerView: 1,
+                        },
+                        1320: {
+                           width: 1280,
+                           slidesPerView: 6
+                        }
+                     }}
+                  >
+                     {errorMessage}
+                     {skeleton}
+                     {content}
+                  </Swiper>
                </div>
             </div>
-         </section>
+         </section >
       )
    }
 }
