@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import KinopoiskService from '../../services/kinopoisk-server';
@@ -9,36 +9,30 @@ import PromoIcon from '../../assets/img/icon/sort.svg';
 import './swiper.scss'
 import './promo.scss';
 
-class Promo extends Component {
-   state = {
-      charList: [],
-      loading: true,
-      error: false
+const Promo = () => {
+   const [charList, setCharList] = useState([]);
+   const [loading, setLoading] = useState(true);
+   const [error, setError] = useState(false);
+
+   useEffect(() => {
+      const kinopoiskService = new KinopoiskService();
+
+      kinopoiskService.getAllCharacters()
+         .then(onCharListLoaded)
+         .catch(onError)
+   }, [])
+
+   const onCharListLoaded = (charList) => {
+      setCharList(charList);
+      setLoading(false);
    }
 
-   KinopoiskService = new KinopoiskService();
-
-   componentDidMount() {
-      this.KinopoiskService.getAllCharacters()
-         .then(this.onCharListLoaded)
-         .catch(this.onError)
+   const onError = () => {
+      setError(true);
+      setLoading(false);
    }
 
-   onCharListLoaded = (charList) => {
-      this.setState({
-         charList,
-         loading: false
-      })
-   }
-
-   onError = () => {
-      this.setState({
-         error: true,
-         loading: false
-      })
-   }
-
-   renderItems(arr) {
+   function renderItems(arr) {
       const items = arr.map((item) => {
 
          return (
@@ -68,44 +62,40 @@ class Promo extends Component {
       )
    }
 
-   render() {
-      const { charList, loading, error } = this.state;
+   const items = renderItems(charList);
 
-      const items = this.renderItems(charList);
+   const errorMessage = error ? <ErrorMessage /> : null;
+   const skeleton = loading ? Array(6).fill(0).map((_, i) => <Skeleton key={i} />) : null;
+   const content = !(loading || error) ? items : null;
 
-      const errorMessage = error ? <ErrorMessage /> : null;
-      const skeleton = loading ? Array(6).fill(0).map((_, i) => <Skeleton key={i} />) : null;
-      const content = !(loading || error) ? items : null;
-
-      return (
-         <section className="promo">
-            <div className="promo__container container">
-               <h2 className="promo__title title">Рекомендуем вам посмотреть</h2>
-               <div className="promo__slider">
-                  <Swiper
-                     spaceBetween={16}
-                     slidesPerView={6}
-                     navigation
-                     breakpoints={{
-                        320: {
-                           width: 200,
-                           slidesPerView: 1,
-                        },
-                        1320: {
-                           width: 1280,
-                           slidesPerView: 6
-                        }
-                     }}
-                  >
-                     {errorMessage}
-                     {skeleton}
-                     {content}
-                  </Swiper>
-               </div>
+   return (
+      <section className="promo">
+         <div className="promo__container container">
+            <h2 className="promo__title title">Рекомендуем вам посмотреть</h2>
+            <div className="promo__slider">
+               <Swiper
+                  spaceBetween={16}
+                  slidesPerView={6}
+                  navigation
+                  breakpoints={{
+                     320: {
+                        width: 200,
+                        slidesPerView: 1,
+                     },
+                     1320: {
+                        width: 1280,
+                        slidesPerView: 6
+                     }
+                  }}
+               >
+                  {errorMessage}
+                  {skeleton}
+                  {content}
+               </Swiper>
             </div>
-         </section >
-      )
-   }
+         </div>
+      </section >
+   )
 }
 
 export default Promo;
