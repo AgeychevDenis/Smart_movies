@@ -1,6 +1,6 @@
-import React from "react"
-import ContentLoader from "react-content-loader"
-import './skeleton.scss'
+import React from "react";
+import ContentLoader from "react-content-loader";
+import './skeleton.scss';
 
 const Skeleton = (props) => (
    <ContentLoader
@@ -19,5 +19,5 @@ const Skeleton = (props) => (
    </ContentLoader >
 )
 
-export default Skeleton
+export default Skeleton;
 

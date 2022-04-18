@@ -13,6 +13,10 @@
       transition: all 0.3s;
       left: 0;
    }
+   // .promo__skeleton
+   &__skeleton {
+      white-space: nowrap;
+   }
    /* .promo__card */
    &__card {
       width: 200px;

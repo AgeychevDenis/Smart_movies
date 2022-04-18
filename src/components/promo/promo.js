@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import KinopoiskService from '../../services/kinopoisk-server';
+import useKinopoiskService from '../../services/kinopoisk-server';
 import ErrorMessage from '../error-message/error-message';
 import Skeleton from '../skeleton/skeleton';
 
@@ -11,25 +11,17 @@ import './promo.scss';
 
 const Promo = () => {
    const [charList, setCharList] = useState([]);
-   const [loading, setLoading] = useState(true);
-   const [error, setError] = useState(false);
+
+   const { loading, error, getAllCharacters } = useKinopoiskService();
 
    useEffect(() => {
-      const kinopoiskService = new KinopoiskService();
 
-      kinopoiskService.getAllCharacters()
+      getAllCharacters()
          .then(onCharListLoaded)
-         .catch(onError)
    }, [])
 
    const onCharListLoaded = (charList) => {
       setCharList(charList);
-      setLoading(false);
-   }
-
-   const onError = () => {
-      setError(true);
-      setLoading(false);
    }
 
    function renderItems(arr) {
@@ -65,7 +57,11 @@ const Promo = () => {
    const items = renderItems(charList);
 
    const errorMessage = error ? <ErrorMessage /> : null;
-   const skeleton = loading ? Array(6).fill(0).map((_, i) => <Skeleton key={i} />) : null;
+   const skeleton = loading ?
+      <div className='promo__skeleton'>
+         {Array(6).fill(0).map((_, i) => <Skeleton key={i} />)}
+      </div>
+      : null;
    const content = !(loading || error) ? items : null;
 
    return (

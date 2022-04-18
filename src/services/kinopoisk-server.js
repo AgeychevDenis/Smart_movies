@@ -1,33 +1,19 @@
-class KinopoiskService {
-   _apiKey = 'e26ee2eb-f418-44d1-abcf-ce19e4e17c2e';
-   _apiBase = 'https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1';
+import { useHttp } from '../hooks/http.hook';
 
-   getResource = async (url) => {
-      let res = await fetch(url, {
-         headers: {
-            'Content-Type': 'application/json',
-            'X-API-KEY': this._apiKey,
-         }
-      });
+const useKinopoiskService = () => {
+   const { loading, request, error, clearError } = useHttp();
 
-      if (!res.ok) {
-         throw new Error(`Could not fetch ${url}, status: ${res.status}`);
-      }
-
-      return await res.json();
+   const getAllCharacters = async () => {
+      const res = await request('https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1');
+      return res.films.map(_transformCharacter);
    }
 
-   getAllCharacters = async () => {
-      const res = await this.getResource('https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1');
-      return res.films.map(this._transformCharacter);
+   const getCharacter = async (id) => {
+      const res = await request(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}`)
+      return _transformCharacter(res);
    }
 
-   getCharacter = async (id) => {
-      const res = await this.getResource(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}`)
-      return this._transformCharacter(res);
-   }
-
-   _transformCharacter = (res) => {
+   const _transformCharacter = (res) => {
       return {
          id: res.filmId,
          imageUrl: res.posterUrl,
@@ -39,10 +25,12 @@ class KinopoiskService {
          genre: res.genres[0].genre
       }
    }
+
+   return { loading, error, clearError, getAllCharacters }
 }
 
 
 
 
 
-export default KinopoiskService;
+export default useKinopoiskService;
