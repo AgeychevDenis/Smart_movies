@@ -1,14 +1,36 @@
 import './content.scss';
 import CollectionItem from './collection-item/collection-item';
+import useKinopoiskService from '../../services/use-kinopoisk-server';
+import { useState, useEffect } from 'react';
 
-const Content = ({ dataCollection }) => {
+const Content = () => {
+   const [collection, setCollectionList] = useState([]);
 
-   const elements = dataCollection.map(item => {
-      const { id, ...itemProps } = item
-      return (
-         <CollectionItem key={id} {...itemProps} />
-      )
-   })
+   const { getCollection } = useKinopoiskService();
+
+   useEffect(() => {
+
+      getCollection()
+         .then(onCollectionListLoaded)
+   }, [])
+
+   const onCollectionListLoaded = (collection) => {
+      setCollectionList(collection);
+   }
+
+   function renderItems(arr) {
+      const items = arr.map((item) => {
+         const { id, ...itemProps } = item
+
+         return (
+            <CollectionItem key={id} {...itemProps} />
+         )
+      });
+
+      return items
+   }
+
+   const items = renderItems(collection);
 
    return (
       <section className="content">
@@ -18,7 +40,7 @@ const Content = ({ dataCollection }) => {
                   Подборки
                </a>
                <div className="content__inner collection">
-                  {elements}
+                  {items}
                </div>
             </div>
          </div>

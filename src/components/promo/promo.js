@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import useKinopoiskService from '../../services/kinopoisk-server';
+import useKinopoiskService from '../../services/use-kinopoisk-server';
 import ErrorMessage from '../error-message/error-message';
 import Skeleton from '../skeleton/skeleton';
 
