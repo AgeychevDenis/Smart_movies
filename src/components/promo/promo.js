@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Navigation, Pagination } from 'swiper'
 
 import useKinopoiskService from '../../services/use-kinopoisk-server';
 import ErrorMessage from '../error-message/error-message';
@@ -8,6 +9,9 @@ import Skeleton from '../skeleton/skeleton';
 import PromoIcon from '../../assets/img/icon/sort.svg';
 import './swiper.scss'
 import './promo.scss';
+import 'swiper/swiper-bundle.css';
+
+SwiperCore.use([Navigation, Pagination]);
 
 const Promo = () => {
    const [charList, setCharList] = useState([]);
@@ -48,9 +52,31 @@ const Promo = () => {
          )
       });
       return (
-         <div className="promo__wrapper">
-            {items}
-         </div>
+         <React.Fragment>
+            <Swiper
+               className="promo__wrapper"
+               spaceBetween={16}
+               slidesPerView={6}
+               navigation
+               onInit={(swiper) => console.log('Swiper initialized!', swiper)}
+               onSlideChange={(swiper) => {
+                  console.log('Slide index changed to: ', swiper.activeIndex);
+               }}
+               onReachEnd={() => console.log('Swiper end reached')}
+               breakpoints={{
+                  320: {
+                     width: 200,
+                     slidesPerView: 1,
+                  },
+                  1320: {
+                     width: 1280,
+                     slidesPerView: 6
+                  }
+               }}
+            >
+               {items}
+            </Swiper>
+         </React.Fragment>
       )
    }
 
@@ -69,25 +95,9 @@ const Promo = () => {
          <div className="promo__container container">
             <h2 className="promo__title title">Рекомендуем вам посмотреть</h2>
             <div className="promo__slider">
-               <Swiper
-                  spaceBetween={16}
-                  slidesPerView={6}
-                  navigation
-                  breakpoints={{
-                     320: {
-                        width: 200,
-                        slidesPerView: 1,
-                     },
-                     1320: {
-                        width: 1280,
-                        slidesPerView: 6
-                     }
-                  }}
-               >
-                  {errorMessage}
-                  {skeleton}
-                  {content}
-               </Swiper>
+               {errorMessage}
+               {skeleton}
+               {content}
             </div>
          </div>
       </section >
