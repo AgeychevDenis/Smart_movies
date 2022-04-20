@@ -1,10 +1,13 @@
+import { lazy, Suspense } from 'react';
+
 import Header from '../header/header';
-import Promo from '../promo/promo';
-import Content from '../content/content'
 import Footer from '../footer/footer';
+import Spinner from '../spinner/spinner'
 
 import './app.scss';
 import './fonts.scss';
+
+const MainPage = lazy(() => import('../pages/main-page'));
 
 
 function App() {
@@ -12,8 +15,11 @@ function App() {
    return (
       <div className="page">
          <Header />
-         <Promo />
-         <Content />
+         <main>
+            <Suspense fallback={<Spinner />}>
+               <MainPage />
+            </Suspense>
+         </main>
          <Footer />
       </div>
    );
