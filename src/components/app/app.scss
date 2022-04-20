@@ -92,12 +92,21 @@ h6 {
       right: -20px;
       top: 14px;
       font-size: 12px;
+      @media (max-width: 768px) {
+         top: 10px;
+      }
    }
    @media (max-width: 768px) {
-      font-size: 24px;
+      font-size: 20px;
+      line-height: 22px;
    }
 }
 
 .overflow-hidden {
    overflow-y: hidden;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+   top: 44%;
 }

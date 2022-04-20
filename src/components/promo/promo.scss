@@ -1,5 +1,4 @@
 .promo {
-   margin-bottom: 55px;
    /* .promo__slider */
    &__slider {
       overflow: hidden;
@@ -121,4 +120,8 @@
    font-size: 13px !important;
    margin-bottom: 13px;
    color: #ffffff73;
+}
+
+.swiper-wrapper {
+   padding: 5px;
 }

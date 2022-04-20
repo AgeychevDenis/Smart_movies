@@ -55,18 +55,15 @@ const Promo = () => {
          <React.Fragment>
             <Swiper
                className="promo__wrapper"
-               spaceBetween={16}
+               spaceBetween={10}
                slidesPerView={6}
+               slidesPerGroup={6}
                navigation
-               onInit={(swiper) => console.log('Swiper initialized!', swiper)}
-               onSlideChange={(swiper) => {
-                  console.log('Slide index changed to: ', swiper.activeIndex);
-               }}
-               onReachEnd={() => console.log('Swiper end reached')}
                breakpoints={{
                   320: {
                      width: 200,
                      slidesPerView: 1,
+                     slidesPerGroup: 1
                   },
                   1320: {
                      width: 1280,
