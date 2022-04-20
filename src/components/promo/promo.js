@@ -54,11 +54,15 @@ const Promo = () => {
       return (
          <React.Fragment>
             <Swiper
+               modules={[Navigation]}
                className="promo__wrapper"
                spaceBetween={10}
                slidesPerView={6}
                slidesPerGroup={6}
-               navigation
+               navigation={{
+                  nextEl: '.swiper-button-next',
+                  prevEl: '.swiper-button-prev',
+               }}
                breakpoints={{
                   320: {
                      width: 200,
@@ -95,6 +99,8 @@ const Promo = () => {
                {errorMessage}
                {skeleton}
                {content}
+               <button className='swiper-button-next'></button>
+               <button className='swiper-button-prev'></button>
             </div>
          </div>
       </section >

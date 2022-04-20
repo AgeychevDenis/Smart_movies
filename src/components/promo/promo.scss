@@ -1,8 +1,25 @@
 .promo {
    /* .promo__slider */
    &__slider {
-      overflow: hidden;
       padding-top: 20px;
+      position: relative;
+      button {
+         top: 44%;
+         font-weight: 700;
+         font-size: 39px;
+         &.swiper-button-next {
+            right: -50px;
+            @media (max-width: 1410px) {
+               right: 10px;
+            }
+         }
+         &.swiper-button-prev {
+            left: -50px;
+            @media (max-width: 1410px) {
+               left: 10px;
+            }
+         }
+      }
    }
    /* .promo__wrapper */
    &__wrapper {
