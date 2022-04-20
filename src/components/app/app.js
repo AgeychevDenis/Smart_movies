@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
+import { Page404 } from '../pages';
 import Header from '../header/header';
 import Footer from '../footer/footer';
 import Spinner from '../spinner/spinner'
@@ -22,7 +23,8 @@ function App() {
                <Suspense fallback={<Spinner />}>
                   <Routes>
                      <Route path="/" element={<MainPage />} />
-                     <Route path="/movie" element={<SingleMoviePage />} />
+                     <Route path="/:movieId" element={<SingleMoviePage />} />
+                     <Route path="*" element={<Page404 />} />
                   </Routes>
                </Suspense>
             </main>

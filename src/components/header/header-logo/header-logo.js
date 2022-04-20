@@ -1,5 +1,5 @@
-
 import './header-logo.scss'
+import { Link } from 'react-router-dom';
 
 const HeaderLogo = () => {
    return (

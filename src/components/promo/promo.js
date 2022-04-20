@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Pagination } from 'swiper'
+import SwiperCore, { Navigation, Pagination } from 'swiper';
+import { Link } from 'react-router-dom';
 
 import useKinopoiskService from '../../services/use-kinopoisk-server';
 import ErrorMessage from '../error-message/error-message';
@@ -32,22 +33,24 @@ const Promo = () => {
       const items = arr.map((item) => {
 
          return (
-            <SwiperSlide className="promo__card" key={item.id}>
-               <div className="promo__card-img">
-                  <img src={item.imageUrl} alt="promo" />
-               </div>
-               <div className="promo__content">
-                  <p className="promo__content-rating">{item.rating}<img src={PromoIcon} alt="sort" />
-                     <span className="name-rating">кинопоиск</span>
+            <SwiperSlide key={item.id}>
+               <Link to={`/${item.id}`} className="promo__card">
+                  <div className="promo__card-img">
+                     <img src={item.imageUrl} alt="promo" />
+                  </div>
+                  <div className="promo__content">
+                     <p className="promo__content-rating">{item.rating}<img src={PromoIcon} alt="sort" />
+                        <span className="name-rating">кинопоиск</span>
+                     </p>
+                     <p className="promo__content-year">{item.year}</p>
+                     <p className="promo__content-country">{item.country}</p>
+                     <p className="promo__content-time">{item.time} минут</p>
+                  </div>
+                  <h4 className="promo__wrapper-title">{item.title}</h4>
+                  <p className="promo__wrapper-subtitle">
+                     {item.genre}
                   </p>
-                  <p className="promo__content-year">{item.year}</p>
-                  <p className="promo__content-country">{item.country}</p>
-                  <p className="promo__content-time">{item.time} минут</p>
-               </div>
-               <h4 className="promo__wrapper-title">{item.title}</h4>
-               <p className="promo__wrapper-subtitle">
-                  {item.genre}
-               </p>
+               </Link>
             </SwiperSlide>
          )
       });
