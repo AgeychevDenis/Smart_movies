@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { Link } from "react-router-dom";
 
 
 class MenuItem extends Component {
@@ -48,7 +49,7 @@ class MenuItem extends Component {
 const SubMenuItem = ({ subtitle }) => {
    return (
       <li className="sub-menu__item">
-         <a className="sub-menu__link">{subtitle}</a>
+         <Link to="/" className="sub-menu__link">{subtitle}</Link>
       </li>
    )
 }

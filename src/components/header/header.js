@@ -5,7 +5,7 @@ import Device from '../../modules/device';
 import './header.scss';
 
 
-const Header = () => {
+const Header = (props) => {
    Device();
    return (
       <header className="header">
@@ -15,7 +15,7 @@ const Header = () => {
                <p>умная подборка</p>
             </Link>
             <HeaderMenu />
-            <HeaderActions />
+            <HeaderActions setShowModal={props} />
          </div>
       </header>
    )

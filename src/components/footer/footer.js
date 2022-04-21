@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import './footer.scss';
 
 const Footer = () => {
@@ -8,47 +10,47 @@ const Footer = () => {
                <div className="footer__top-social social">
                   <ul className="social-list">
                      <li className="social-list__item">
-                        <a className="social-list__link icon-vk"></a>
+                        <Link to="/" className="social-list__link icon-vk"></Link>
                      </li>
                      <li className="social-list__item">
-                        <a className="social-list__link icon-facebook"></a>
+                        <Link to="/" className="social-list__link icon-facebook"></Link>
                      </li>
                      <li className="social-list__item">
-                        <a className="social-list__link icon-twitter"></a>
+                        <Link to="/" className="social-list__link icon-twitter"></Link>
                      </li>
                      <li className="social-list__item">
-                        <a className="social-list__link icon-instagram"></a>
+                        <Link to="/" className="social-list__link icon-instagram"></Link>
                      </li>
                      <li className="social-list__item">
-                        <a className="social-list__link icon-youtube"></a>
+                        <Link to="/" className="social-list__link icon-youtube"></Link>
                      </li>
                   </ul>
                </div>
                <div className="footer__top-list">
                   <ul className="footer-list">
                      <li className="footer-list__item">
-                        <a className="footer-list__link">Подборки</a>
+                        <Link to="/" className="footer-list__link">Подборки</Link>
                      </li>
                      <li className="footer-list__item">
-                        <a className="footer-list__link">Трейлеры</a>
+                        <Link to="/" className="footer-list__link">Трейлеры</Link>
                      </li>
                      <li className="footer-list__item">
-                        <a className="footer-list__link">Сериалы</a>
+                        <Link to="/" className="footer-list__link">Сериалы</Link>
                      </li>
                      <li className="footer-list__item">
-                        <a className="footer-list__link">Актеры</a>
+                        <Link to="/" className="footer-list__link">Актеры</Link>
                      </li>
                      <li className="footer-list__item">
-                        <a className="footer-list__link">Контакты</a>
+                        <Link to="/" className="footer-list__link">Контакты</Link>
                      </li>
                      <li className="footer-list__item">
-                        <a className="footer-list__link">О нас</a>
+                        <Link to="/" className="footer-list__link">О нас</Link>
                      </li>
                   </ul>
                </div>
             </div>
             <div className="footer__bottom">
-               <p>© 2022, <a href="index.html">SMART</a> 18+</p>
+               <p>© 2022, <Link to="/" >SMART</Link> 18+</p>
             </div>
          </div>
       </footer >

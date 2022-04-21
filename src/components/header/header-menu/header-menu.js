@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { Link } from 'react-router-dom';
 import MenuItem from './menu-item/menu-item';
 import './header-menu.scss';
 
@@ -44,11 +45,11 @@ class HeaderMenu extends Component {
                <ul className="menu__list">
                   <MenuItem title={'Что посмотреть'} data={data} />
                   <li className="menu__item">
-                     <a className="menu__link">Трейлеры</a>
+                     <Link to="/" className="menu__link">Трейлеры</Link>
                   </li>
                   <MenuItem title={'Актеры'} data={data2} />
                   <li className="menu__item">
-                     <a className="menu__link">Сериалы</a>
+                     <Link to="/" className="menu__link">Сериалы</Link>
                   </li>
                </ul>
             </nav>

@@ -1,10 +1,11 @@
-import { lazy, Suspense } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import { Page404 } from '../pages';
 import Header from '../header/header';
 import Footer from '../footer/footer';
 import Spinner from '../spinner/spinner'
+import Modal from '../modal/modal';
 
 import './app.scss';
 import './fonts.scss';
@@ -14,11 +15,13 @@ const SingleMoviePage = lazy(() => import('../pages/single-movie-page/single-mov
 
 
 function App() {
+   const [showModal, setShowModal] = useState(false);
 
    return (
       <Router>
          <div className="page">
-            <Header />
+            <Header setShowModal={setShowModal} />
+            {showModal ? <Modal onClose={setShowModal} /> : null}
             <main>
                <Suspense fallback={<Spinner />}>
                   <Routes>

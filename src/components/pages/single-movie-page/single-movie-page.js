@@ -1,10 +1,11 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
+import useKinopoiskService from '../../../services/use-kinopoisk-server';
 import ErrorMessage from '../../error-message/error-message';
 import Spinner from '../../spinner/spinner';
+
 import './single-movie-page.scss';
-import useKinopoiskService from '../../../services/use-kinopoisk-server';
 
 
 const SingleMoviePage = () => {
@@ -47,7 +48,7 @@ const View = ({ movie }) => {
       <section className='single-movie container'>
          <div className="single-movie__wrapper">
             <div className="single-movie__img">
-               <img src={imageUrl} />
+               <img src={imageUrl} alt={name} />
             </div>
             <div className="single-movie__info">
                <div className="single-movie__title">

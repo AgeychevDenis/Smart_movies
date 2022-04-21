@@ -1,7 +1,10 @@
-import './content.scss';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
 import CollectionItem from './collection-item/collection-item';
 import useKinopoiskService from '../../services/use-kinopoisk-server';
-import { useState, useEffect } from 'react';
+
+import './content.scss';
 
 const Content = () => {
    const [collection, setCollectionList] = useState([]);
@@ -36,9 +39,9 @@ const Content = () => {
       <section className="content">
          <div className="content__container container">
             <div className="content__wrapper">
-               <a className="content__title title icon-square">
+               <Link to="/" className="content__title title icon-square">
                   Подборки
-               </a>
+               </Link>
                <div className="content__inner collection">
                   {items}
                </div>
