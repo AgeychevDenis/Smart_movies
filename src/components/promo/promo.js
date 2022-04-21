@@ -30,10 +30,10 @@ const Promo = () => {
    }
 
    function renderItems(arr) {
-      const items = arr.map((item) => {
+      const items = arr.map((item, i) => {
 
          return (
-            <SwiperSlide key={item.id}>
+            <SwiperSlide key={i}>
                <Link to={`/${item.id}`} className="promo__card">
                   <div className="promo__card-img">
                      <img src={item.imageUrl} alt="promo" />

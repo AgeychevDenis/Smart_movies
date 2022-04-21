@@ -1,4 +1,3 @@
-import './header-actions.scss';
 import { Component } from 'react';
 
 class HeaderActions extends Component {

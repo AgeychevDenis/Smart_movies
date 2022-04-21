@@ -15,7 +15,6 @@ const SingleMoviePage = () => {
 
    useEffect(() => {
       updateMovie()
-      // getMovie(1100777).then(res => console.log(res))
    }, [movieId])
 
    const updateMovie = () => {
@@ -44,8 +43,6 @@ const SingleMoviePage = () => {
 const View = ({ movie }) => {
    const { name, imageUrl, age, ratingImdb, ratingKinopoisk, year, description, shortDescription, countries, genres } = movie;
 
-   console.log(movie);
-
    return (
       <section className='single-movie container'>
          <div className="single-movie__wrapper">
@@ -54,8 +51,7 @@ const View = ({ movie }) => {
             </div>
             <div className="single-movie__info">
                <div className="single-movie__title">
-                  <h2 className='single-movie__name'>{name}</h2>
-                  <p className="single-movie__descr">{shortDescription}</p>
+                  <h2 className='single-movie__name'>{name} ({year})</h2>
                   <div className="single-movie__rating">
                      <p className="single-movie__rating-kinopoisk">{ratingKinopoisk}<span>КиноПоиск</span></p>
                      <p className="single-movie__rating-imdb">{ratingImdb} <span>IMDb</span></p>
@@ -81,7 +77,7 @@ const View = ({ movie }) => {
                   </div>
                   <div className="single-movie__item">
                      <p>Возраст</p>
-                     <p>{age}</p>
+                     <p>{`+${age}`}</p>
                   </div>
                </div>
             </div>

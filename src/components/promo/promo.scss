@@ -81,6 +81,7 @@
       & img {
          width: 100%;
          transition: all 0.3s;
+         image-rendering: -webkit-optimize-contrast;
       }
    }
    /* .promo__content */

@@ -22,7 +22,7 @@ const useKinopoiskService = () => {
       const res = await request(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}`, 'GET', null, {
          'X-API-KEY': _apiKey, 'Content-Type': 'application/json'
       });
-      return _transformMovie(res);
+      return _transformMovie(res)
    }
 
    const _transformCharacter = (res) => {
@@ -52,14 +52,14 @@ const useKinopoiskService = () => {
          id: res.kinopoiskId,
          name: res.nameRu,
          imageUrl: res.posterUrlPreview,
-         age: res.ratingAgeLimits,
-         ratingImdb: res.ratingImdb,
+         age: res.ratingAgeLimits.slice(3, 5),
+         ratingImdb: res.ratingImdb || '—',
          ratingKinopoisk: res.ratingKinopoisk,
          year: res.year,
          description: res.description,
-         shortDescription: res.shortDescription,
-         countries: res.countries[0].country,
-         genres: res.genres[0].genre
+         shortDescription: res.shortDescription || '—',
+         countries: res.countries.map((item, i) => (i ? ', ' : '') + item.country),
+         genres: res.genres.map((item, i) => (i ? ', ' : '') + item.genre)
       }
    }
 

@@ -1,4 +1,4 @@
-import HeaderLogo from './header-logo/header-logo'
+import { Link } from 'react-router-dom';
 import HeaderActions from './header-actions/header-actions';
 import HeaderMenu from './header-menu/header-menu';
 import Device from '../../modules/device';
@@ -10,7 +10,10 @@ const Header = () => {
    return (
       <header className="header">
          <div className="header__container">
-            <HeaderLogo />
+            <Link to="/" className="header__logo">
+               <h1>SMART</h1>
+               <p>умная подборка</p>
+            </Link>
             <HeaderMenu />
             <HeaderActions />
          </div>
