@@ -18,7 +18,7 @@ const Header = (props) => {
                <button onClick={() => props.setOpenModal(true)} className="header__link">
                   <i className="icon-search"></i>
                </button>
-               <button className="header__link">
+               <button onClick={() => props.setOpenModalLogin(true)} className="header__link">
                   <i className="icon-user"></i>
                </button>
             </div>
