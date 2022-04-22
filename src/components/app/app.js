@@ -5,7 +5,7 @@ import { Page404 } from '../pages';
 import Header from '../header/header';
 import Footer from '../footer/footer';
 import Spinner from '../spinner/spinner'
-import Modal from '../modal/modal';
+import Modal from '../modal-search/modal-search'
 
 import './app.scss';
 import './fonts.scss';
@@ -15,13 +15,13 @@ const SingleMoviePage = lazy(() => import('../pages/single-movie-page/single-mov
 
 
 function App() {
-   const [showModal, setShowModal] = useState(false);
+   const [openModal, setOpenModal] = useState(false)
 
    return (
       <Router>
          <div className="page">
-            <Header setShowModal={setShowModal} />
-            {showModal ? <Modal onClose={setShowModal} /> : null}
+            <Header setOpenModal={setOpenModal} />
+            <Modal open={openModal} onClose={() => setOpenModal(false)} />
             <main>
                <Suspense fallback={<Spinner />}>
                   <Routes>

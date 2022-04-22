@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import HeaderActions from './header-actions/header-actions';
 import HeaderMenu from './header-menu/header-menu';
 import Device from '../../modules/device';
 import './header.scss';
@@ -15,7 +14,14 @@ const Header = (props) => {
                <p>умная подборка</p>
             </Link>
             <HeaderMenu />
-            <HeaderActions setShowModal={props} />
+            <div className="header__actions">
+               <button onClick={() => props.setOpenModal(true)} className="header__link">
+                  <i className="icon-search"></i>
+               </button>
+               <button className="header__link">
+                  <i className="icon-user"></i>
+               </button>
+            </div>
          </div>
       </header>
    )
