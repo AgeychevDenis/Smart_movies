@@ -3,12 +3,13 @@ import { CSSTransition } from 'react-transition-group';
 import * as Yup from 'yup';
 
 import '../modal-search/modal-search.scss';
+import '../modal-login/modal-login.scss';
 
 const ModalLogin = ({ open, onClose }) => {
 
    const duration = 300;
 
-   const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
+   const phoneRegExp = /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/;
 
    return (
       <CSSTransition
@@ -26,18 +27,19 @@ const ModalLogin = ({ open, onClose }) => {
             }}
             validationSchema={Yup.object({
                telephone: Yup.string()
-                  .matches(phoneRegExp, 'Введите номер в международном формате, вот так: +79XXXXXXXXX')
-                  .required('Обязательное поле!'),
+                  .matches(phoneRegExp, 'Введите номер в международном формате, вот так: +79XXXXXXXXX'),
                password: Yup.string()
-                  .min(6, 'Не менее 6 символов'),
+                  .min(6, 'Не менее 6 символов')
+                  .required('Обязательное поле!'),
                terms: Yup.boolean()
                   .required('Необходимо согласие')
                   .oneOf([true], "Необходимо согласие")
             })}
+            onSubmit={values => console.log(JSON.stringify(values, null, 2))}
          >
 
             <div onClick={onClose} className="popup" >
-               <div onClick={(e) => e.stopPropagation()} className="popup__container">
+               <div onClick={(e) => e.stopPropagation()} className="popup__container popup-login__container">
                   <div className="popup__body">
                      <h1 className="popup__title">Вход | Регистрация</h1>
                      <p></p>
@@ -46,7 +48,7 @@ const ModalLogin = ({ open, onClose }) => {
                         <Field
                            id="telephone"
                            name="telephone"
-                           type="number"
+                           type="tel"
                            autoComplete="off"
                         />
                         <ErrorMessage component="div" className="error" name="telephone" />
@@ -58,11 +60,13 @@ const ModalLogin = ({ open, onClose }) => {
                            autoComplete="off"
                         />
                         <ErrorMessage component="div" className="error" name="password" />
-                        <label>
+                        <label className='form__lable-checkbox'>
                            <Field
                               name="terms"
                               type="checkbox"
+                              className="form__checkbox"
                            />
+                           <div className='form__checkbox-mark'></div>
                            Я принимаю условия Политики приватности и Пользовательского соглашения
                         </label>
                         <ErrorMessage component="div" className="error" name="terms" />

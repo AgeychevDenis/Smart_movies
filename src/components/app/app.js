@@ -16,15 +16,15 @@ const SingleMoviePage = lazy(() => import('../pages/single-movie-page/single-mov
 
 
 function App() {
-   const [openModal, setOpenModal] = useState(false)
-   const [openModalLogin, setOpenModalLogin] = useState(false)
+   const [modalSearch, setModalSearch] = useState(false)
+   const [modalLogin, setModalLogin] = useState(false)
 
    return (
       <Router>
          <div className="page">
-            <Header setOpenModal={setOpenModal} setOpenModalLogin={setOpenModalLogin} />
-            <ModalSearch open={openModal} onClose={() => setOpenModal(false)} />
-            <ModalLogin open={openModalLogin} onClose={() => setOpenModalLogin(false)} />
+            <Header setModalLogin={setModalLogin} setModalSearch={setModalSearch} />
+            <ModalSearch open={modalSearch} onClose={() => setModalSearch(false)} />
+            <ModalLogin open={modalLogin} onClose={() => setModalLogin(false)} />
             <main>
                <Suspense fallback={<Spinner />}>
                   <Routes>

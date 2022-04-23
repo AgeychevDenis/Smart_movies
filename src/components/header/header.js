@@ -15,10 +15,10 @@ const Header = (props) => {
             </Link>
             <HeaderMenu />
             <div className="header__actions">
-               <button onClick={() => props.setOpenModal(true)} className="header__link">
+               <button onClick={() => props.setModalSearch(true)} className="header__link">
                   <i className="icon-search"></i>
                </button>
-               <button onClick={() => props.setOpenModalLogin(true)} className="header__link">
+               <button onClick={() => props.setModalLogin(true)} className="header__link">
                   <i className="icon-user"></i>
                </button>
             </div>
