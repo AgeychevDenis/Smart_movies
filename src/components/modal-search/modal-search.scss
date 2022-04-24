@@ -19,6 +19,11 @@
       font-size: 40px;
       color: #fff;
       margin-bottom: 40px;
+      padding-right: 35px;
+      line-height: 130%;
+      @media (max-width: 600px) {
+         font-size: 35px;
+      }
    }
    /* .popup__input */
    &__input {
@@ -77,6 +82,9 @@
    &:hover {
       background-color: #007aff;
    }
+   @media (max-width: 600px) {
+      width: 75px;
+   }
 }
 
 .modal-search {
@@ -85,6 +93,9 @@
       display: flex;
       flex-wrap: wrap;
       margin-left: 10px;
+      @media (max-width: 600px) {
+         display: block;
+      }
    }
    // .modal-search__inner
    &__inner {

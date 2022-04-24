@@ -22,7 +22,7 @@ const useKinopoiskService = () => {
       const res = await request(`https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=${name}&page=1`, 'GET', null, {
          'X-API-KEY': _apiKey, 'Content-Type': 'application/json'
       });
-      return res.films.map(_transformCharacter);
+      return res.films.map(_transformSearchMovie);
    }
 
    const getMovie = async (id) => {
@@ -51,6 +51,14 @@ const useKinopoiskService = () => {
          imageUrl: res.imageUrl,
          title: res.title,
          subtitle: res.subtitle
+      }
+   }
+
+   const _transformSearchMovie = (res) => {
+      return {
+         id: res.kinopoiskId,
+         title: res.nameRu,
+         year: res.year,
       }
    }
 
