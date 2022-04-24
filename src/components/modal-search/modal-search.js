@@ -23,29 +23,30 @@ const ModalSearch = ({ open, onClose }) => {
          .then(onMovieLoaded);
    }
 
+
    const duration = 300;
 
    function renderMovie(arr) {
-      const items = arr.map((item, i) => {
+      const items = arr.slice(0, 8).map((item, i) => {
 
          return (
-            <div className='modal-search__wrapper'>
+            <div key={i} className='modal-search__inner'>
                <i className="icon-video"></i>
-               <Link onClick={onClose} to={`/${item.id}`} className='modal-search__success'> {item.title} {`(${item.year})`}</Link>
+               <Link onClick={onClose} to={`/${item.id}`} className='modal-search__success'> <span>{item.title}</span> <span>{`(${item.year})`}</span></Link>
             </div>
          )
       })
       return (
-         { items }
+         items
       )
    }
 
    const errorMessage = error ? <div className='modal-search__critical-error'><ErrorMessage /></div> : null;
    const results = !movie ? null : movie.length > 0 ?
       <div className='modal-search__wrapper'>
-         <i className="icon-video"></i>
-         <Link onClick={onClose} to={`/${movie[0].id}`} className='modal-search__success'> {movie[0].title} {`(${movie[0].year})`}</Link>
-      </div> :
+         {renderMovie(movie)}
+      </div>
+      :
       <div className='modal-search__error'>Фильм не был найден. Проверьте название и повторите попытку</div>
 
    return (

@@ -31,8 +31,10 @@
 .icon-video:before {
    content: "\e909";
    font-size: 22px;
-   margin-right: 10px;
+   margin-right: 13px;
    color: #007aff;
+   top: -4px;
+   position: relative;
 }
 .icon-arrow-left:before {
    content: "\e904";
