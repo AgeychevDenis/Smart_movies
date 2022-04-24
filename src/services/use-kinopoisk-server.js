@@ -18,6 +18,13 @@ const useKinopoiskService = () => {
 
    }
 
+   const getMovieByName = async (name) => {
+      const res = await request(`https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=${name}&page=1`, 'GET', null, {
+         'X-API-KEY': _apiKey, 'Content-Type': 'application/json'
+      });
+      return res.films.map(_transformCharacter);
+   }
+
    const getMovie = async (id) => {
       const res = await request(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}`, 'GET', null, {
          'X-API-KEY': _apiKey, 'Content-Type': 'application/json'
@@ -63,7 +70,7 @@ const useKinopoiskService = () => {
       }
    }
 
-   return { loading, error, clearError, getAllCharacters, getCollection, getMovie }
+   return { loading, error, clearError, getAllCharacters, getCollection, getMovie, getMovieByName }
 }
 
 

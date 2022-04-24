@@ -38,8 +38,8 @@ const ModalLogin = ({ open, onClose }) => {
             onSubmit={values => console.log(JSON.stringify(values, null, 2))}
          >
 
-            <div onClick={onClose} className="popup" >
-               <div onClick={(e) => e.stopPropagation()} className="popup__container popup-login__container">
+            <div className="popup" >
+               <div className="popup__container popup-login__container">
                   <div className="popup__body">
                      <h1 className="popup__title">Вход | Регистрация</h1>
                      <p></p>
