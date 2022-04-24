@@ -23,6 +23,7 @@ const Promo = () => {
 
       getAllCharacters()
          .then(onCharListLoaded)
+      //eslint-disable-next-line
    }, [])
 
    const onCharListLoaded = (charList) => {

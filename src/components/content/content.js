@@ -15,6 +15,7 @@ const Content = () => {
 
       getCollection()
          .then(onCollectionListLoaded)
+      //eslint-disable-next-line
    }, [])
 
    const onCollectionListLoaded = (collection) => {
