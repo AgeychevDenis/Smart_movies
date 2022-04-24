@@ -23,7 +23,6 @@ const ModalSearch = ({ open, onClose }) => {
          .then(onMovieLoaded);
    }
 
-
    const duration = 300;
 
    function renderMovie(arr) {
@@ -32,7 +31,7 @@ const ModalSearch = ({ open, onClose }) => {
          return (
             <div key={i} className='modal-search__inner'>
                <i className="icon-video"></i>
-               <Link onClick={onClose} to={`/${item.id}`} className='modal-search__success'> <span>{item.title}</span> <span>{`(${item.year})`}</span></Link>
+               <Link onClick={onClose} to={`/movie/${item.id}`} className='modal-search__success'> <span>{item.title}</span> <span>{`(${item.year})`}</span></Link>
             </div>
          )
       })

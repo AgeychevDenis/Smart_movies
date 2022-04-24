@@ -34,7 +34,7 @@ const Promo = () => {
 
          return (
             <SwiperSlide key={i}>
-               <Link to={`/${item.id}`} className="promo__card">
+               <Link to={`/movie/${item.id}`} className="promo__card">
                   <div className="promo__card-img">
                      <img src={item.imageUrl} alt="promo" />
                   </div>

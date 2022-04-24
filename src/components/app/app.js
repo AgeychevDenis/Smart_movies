@@ -29,7 +29,7 @@ function App() {
                <Suspense fallback={<Spinner />}>
                   <Routes>
                      <Route path="/" element={<MainPage />} />
-                     <Route path="/:movieId" element={<SingleMoviePage />} />
+                     <Route path="/movie/:movieId" element={<SingleMoviePage />} />
                      <Route path="*" element={<Page404 />} />
                   </Routes>
                </Suspense>

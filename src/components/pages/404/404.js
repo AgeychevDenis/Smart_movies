@@ -1,13 +1,13 @@
-import ErrorMessage from "../../error-message/error-message"
 import { Link } from "react-router-dom"
 import './404.scss';
 
 const Page404 = () => {
    return (
-      <div className="error container" style={{ 'textAlign': 'center' }}>
-         <ErrorMessage />
-         <p>Страница, на которую вы пытаетесь попасть не существует или была удалена.</p>
-         <Link to="/" className="btn-error">Главная страница</Link>
+      <div className="error-page" style={{ 'textAlign': 'center' }}>
+         <h1>404</h1>
+         <span>Страница не найдена</span>
+         <p>Мы сожалеем, но страница на которую Вы пытались перейти не существует. Пожалуйста вернитесь на предыдущую страницу или воспользуйтесь меню сайта</p>
+         <Link to="/" className="error-page__btn-error">Главная страница</Link>
       </div>
    )
 }

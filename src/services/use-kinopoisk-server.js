@@ -56,7 +56,7 @@ const useKinopoiskService = () => {
 
    const _transformSearchMovie = (res) => {
       return {
-         id: res.kinopoiskId,
+         id: res.filmId,
          title: res.nameRu,
          year: res.year,
       }
