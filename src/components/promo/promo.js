@@ -45,7 +45,7 @@ const Promo = () => {
                      </p>
                      <p className="promo__content-year">{item.year}</p>
                      <p className="promo__content-country">{item.country}</p>
-                     <p className="promo__content-time">{item.time} минут</p>
+                     <p className="promo__content-time"><span>{item.time}</span></p>
                   </div>
                   <h4 className="promo__wrapper-title">{item.title}</h4>
                   <p className="promo__wrapper-subtitle">

@@ -8,6 +8,8 @@ const MainPage = () => {
       <>
          <ErrorBoundary>
             <Promo />
+         </ErrorBoundary>
+         <ErrorBoundary>
             <Content />
          </ErrorBoundary>
       </>

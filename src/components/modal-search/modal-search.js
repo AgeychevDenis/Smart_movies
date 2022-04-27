@@ -2,7 +2,8 @@ import { CSSTransition } from 'react-transition-group';
 import { useState } from 'react';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
-import { Formik, Form, ErrorMessage, Field } from 'formik';
+import { Formik, Form, Field, ErrorMessage as FormikErrorMessage } from 'formik';
+import ErrorMessage from '../error-message/error-message';
 
 
 import useKinopoiskService from '../../services/use-kinopoisk-server';
@@ -86,6 +87,7 @@ const ModalSearch = ({ open, onClose }) => {
                         </button>
                      </Form>
                      <button onClick={onClose} className="close">&times;</button>
+                     <FormikErrorMessage component="div" className="modal-search__error" name="charName" />
                   </div>
                   {results}
                   {errorMessage}

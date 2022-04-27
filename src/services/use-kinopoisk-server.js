@@ -3,7 +3,7 @@ import { useHttp } from '../hooks/http.hook';
 const useKinopoiskService = () => {
    const { loading, request, error, clearError } = useHttp();
 
-   const _apiKey = '817e16ef-f08e-4086-b21e-0d3737b1b32d'
+   const _apiKey = 'e26ee2eb-f418-44d1-abcf-ce19e4e17c2e'
 
    const getAllCharacters = async () => {
       const res = await request('https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1', 'GET', null, {

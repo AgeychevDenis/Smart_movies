@@ -27,6 +27,7 @@ const ModalLogin = ({ open, onClose }) => {
             }}
             validationSchema={Yup.object({
                telephone: Yup.string()
+                  .required('Обязательное поле!')
                   .matches(phoneRegExp, 'Введите номер в международном формате, вот так: +79XXXXXXXXX'),
                password: Yup.string()
                   .min(6, 'Не менее 6 символов')
@@ -35,7 +36,12 @@ const ModalLogin = ({ open, onClose }) => {
                   .required('Необходимо согласие')
                   .oneOf([true], "Необходимо согласие")
             })}
-            onSubmit={values => console.log(JSON.stringify(values, null, 2))}
+            onSubmit={(values, { setSubmitting }) => {
+               setTimeout(() => {
+                  alert(JSON.stringify(values, null, 2));
+                  setSubmitting(false);
+               }, 400);
+            }}
          >
 
             <div className="popup" >
