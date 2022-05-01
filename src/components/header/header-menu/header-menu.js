@@ -10,9 +10,10 @@ class HeaderMenu extends Component {
          active: false,
          data: [
             { id: 1, subtitle: 'Популярное' },
-            { id: 2, subtitle: 'Смотрят сейчас' },
-            { id: 3, subtitle: 'Ожидаемое' },
-            { id: 4, subtitle: 'Лучшее' }
+            { id: 2, subtitle: 'Подборки фильмов' },
+            { id: 3, subtitle: 'Смотрят сейчас' },
+            { id: 4, subtitle: 'Ожидаемое' },
+            { id: 5, subtitle: 'Лучшее' }
          ],
          data2: [
             { id: 1, subtitle: 'Популярные актеры' }

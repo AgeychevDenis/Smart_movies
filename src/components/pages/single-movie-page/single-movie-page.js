@@ -79,7 +79,7 @@ const View = ({ movie }) => {
                   </div>
                   <div className="single-movie__item">
                      <p>Возраст</p>
-                     <p>{`+${age}`}</p>
+                     <p>{age === '—' ? age : '+' + age}</p>
                   </div>
                </div>
             </div>

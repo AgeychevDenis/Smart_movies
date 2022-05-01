@@ -11,7 +11,7 @@ const Header = (props) => {
          <div className="header__container">
             <Link to="/" className="header__logo">
                <h1>SMART</h1>
-               <p>умная подборка</p>
+               <p>подборки фильмов</p>
             </Link>
             <HeaderMenu />
             <div className="header__actions">

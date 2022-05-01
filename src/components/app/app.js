@@ -13,6 +13,7 @@ import './fonts.scss';
 
 const MainPage = lazy(() => import('../pages/main-page'));
 const SingleMoviePage = lazy(() => import('../pages/single-movie-page/single-movie-page'));
+const SingleCollectionPage = lazy(() => import('../pages/single-collection-page/single-collection-page'));
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
                   <Routes>
                      <Route path="/" element={<MainPage />} />
                      <Route path="/movie/:movieId" element={<SingleMoviePage />} />
+                     <Route path="/single_collection" element={<SingleCollectionPage />} />
                      <Route path="*" element={<Page404 />} />
                   </Routes>
                </Suspense>
