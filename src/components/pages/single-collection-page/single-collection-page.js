@@ -43,6 +43,8 @@ const singleCollectionPage = () => {
                            <li className='compilation__info-item'>+18</li>
                         </ul>
                         <p className="compilation__genres">Драма</p>
+                        <p className="compilation__genres">Драма</p>
+                        <p className="compilation__genres">Драма</p>
                      </div>
                   </Link>
                </div>
