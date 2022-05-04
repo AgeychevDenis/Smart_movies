@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import CollectionItem from './collection-item/collection-item';
 import useKinopoiskService from '../../services/use-kinopoisk-server';
 
 import './content.scss';
@@ -24,10 +23,15 @@ const Content = () => {
 
    function renderItems(arr) {
       const items = arr.map((item) => {
-         const { id, ...itemProps } = item
 
          return (
-            <CollectionItem key={id} {...itemProps} />
+            <Link to={`/single_collection/${item.id}`} className="collection__item" key={item.id}>
+               <img className="collection__item-img" src={item.imageUrl} alt={item.title} />
+               <div className="collection__item-info">
+                  <h4 className="collection__item-title">{item.title}</h4>
+                  <div className="collection__item-subtitle">{item.subtitle}</div>
+               </div>
+            </Link >
          )
       });
 

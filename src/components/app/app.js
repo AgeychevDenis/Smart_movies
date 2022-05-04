@@ -31,7 +31,7 @@ function App() {
                   <Routes>
                      <Route path="/" element={<MainPage />} />
                      <Route path="/movie/:movieId" element={<SingleMoviePage />} />
-                     <Route path="/single_collection" element={<SingleCollectionPage />} />
+                     <Route path="/single_collection/:compilationId" element={<SingleCollectionPage />} />
                      <Route path="*" element={<Page404 />} />
                   </Routes>
                </Suspense>

@@ -1,9 +1,55 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import useKinopoiskService from '../../../services/use-kinopoisk-server';
+import ErrorMessage from '../../error-message/error-message';
+import Spinner from '../../spinner/spinner';
+
 import img from '../../../assets/img/single-movie/img-silngle.jpg'
+
+
 import './single-collection-page.scss'
 
-const singleCollectionPage = () => {
+const SingleCollectionPage = () => {
+   const { compilationId } = useParams();
+
+   const [compilation, setCompilationList] = useState({});
+
+
+   const { getCompilation, loading, error, clearError } = useKinopoiskService();
+
+   useEffect(() => {
+      updateCompilation()
+
+      //eslint-disable-next-line
+   }, [compilationId])
+
+   const updateCompilation = () => {
+      clearError();
+      getCompilation(compilationId)
+         .then(onCompilationLoaded)
+   }
+
+   const onCompilationLoaded = (compilation) => {
+      setCompilationList(compilation)
+   }
+
+   const errorMessage = error ? <ErrorMessage /> : null;
+   const spinner = loading ? <Spinner /> : null;
+   const content = !(loading || error) ? <View compilation={compilation} /> : null;
+
+   return (
+      <>
+         {errorMessage}
+         {spinner}
+         {content}
+      </>
+   )
+}
+
+const View = ({ compilation }) => {
+
+   const { title, subtitle } = compilation;
    return (
       <section className='compilation container'>
          <ul className='breadcrumbs__list'>
@@ -14,11 +60,11 @@ const singleCollectionPage = () => {
                <Link to="/">Подборки фильмов</Link>
             </li>
             <li className='breadcrumbs__list-item'>
-               <Link to="/">Лучшие фильмы гoда</Link>
+               <Link to="/">{title}</Link>
             </li>
          </ul>
-         <h2 className="compilation__title">Лучшие фильмы гoда</h2>
-         <p className="compilation__subtitle">От народной комедии «Батя» до грандиозного фэнтези «Дюна»: собрали 21 лучший фильм, которые зрители Smart выбирали чаще других в уходящем году.</p>
+         <h2 className="compilation__title">{title}</h2>
+         <p className="compilation__subtitle">{subtitle}</p>
          <div className="line"></div>
          <ul className="compilation__list">
             <li className="compilation__item">
@@ -112,8 +158,7 @@ const singleCollectionPage = () => {
             </li>
          </ul>
       </section>
-
    )
 }
 
-export default singleCollectionPage;
+export default SingleCollectionPage;

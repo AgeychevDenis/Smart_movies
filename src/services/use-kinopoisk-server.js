@@ -13,10 +13,20 @@ const useKinopoiskService = () => {
    }
 
    const getCollection = async () => {
-      const res = await request('http://myjson.dit.upm.es/api/bins/dok9');
+      const res = await request('http://myjson.dit.upm.es/api/bins/hnrt');
       return res.collection.map(_transformCollection)
-
    }
+
+   const getCompilation = async (id) => {
+      const res = await request('http://myjson.dit.upm.es/api/bins/hnrt');
+      return res.collection[id]
+   }
+
+   // const getCompilationFilms = async (id) => {
+   //    const res = await request('http://myjson.dit.upm.es/api/bins/hnrt');
+   //    return res.collection[id].films[0].filmId
+   // }
+
 
    const getMovieByName = async (name) => {
       const res = await request(`https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=${name}&page=1`, 'GET', null, {
@@ -39,7 +49,7 @@ const useKinopoiskService = () => {
          rating: res.rating,
          year: res.year,
          country: res.countries[0].country,
-         time: res.filmLength,
+         time: res.filmLength ? `${res.filmLength.replace(/:/, ' ч. ')} мин.` : '-',
          title: res.nameRu,
          genre: res.genres[0].genre
       }
@@ -50,7 +60,8 @@ const useKinopoiskService = () => {
          id: res.id,
          imageUrl: res.imageUrl,
          title: res.title,
-         subtitle: res.subtitle
+         subtitle: res.subtitle,
+         films: res.films
       }
    }
 
@@ -78,7 +89,7 @@ const useKinopoiskService = () => {
       }
    }
 
-   return { loading, error, clearError, getAllCharacters, getCollection, getMovie, getMovieByName }
+   return { loading, error, clearError, getAllCharacters, getCollection, getMovie, getMovieByName, getCompilation }
 }
 
 
