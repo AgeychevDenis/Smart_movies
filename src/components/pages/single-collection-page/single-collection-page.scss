@@ -1,0 +1,131 @@
+.compilation {
+   color: #fff;
+   font-weight: normal;
+   // .compilation__title
+   &__title {
+      font-size: 32px;
+      line-height: 40px;
+      font-weight: bold;
+      margin: 20px 0 10px;
+   }
+   // .compilation__subtitle
+   &__subtitle {
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 26px;
+      margin-bottom: 25px;
+      color: #ffffffa3;
+   }
+   // .compilation__list
+   &__list {
+      margin: 70px 0 25px;
+   }
+   // .compilation__wrapper
+   &__wrapper {
+      display: flex;
+   }
+   // .compilation__item
+   &__item {
+      border-bottom: 1px solid #001048;
+      margin-bottom: 30px;
+      &:last-child {
+         border-bottom: none;
+      }
+   }
+   // .compilation__cell
+   &__cell {
+      border: 2px solid #fff;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      padding-top: 10px;
+      margin-right: 20px;
+   }
+   // .compilation__inner
+   &__inner {
+      display: flex;
+   }
+   // .compilation__img
+   &__img img {
+      width: 175px;
+   }
+   // .compilation__description
+   &__description {
+      padding-left: 20px;
+   }
+   // .compilation__description-title
+   &__description-title {
+      font-size: 20px;
+      margin-bottom: 15px;
+   }
+   // .compilation__rating
+   &__rating {
+      display: flex;
+      text-align: center;
+      p + p {
+         margin-left: 10px;
+      }
+      margin-bottom: 15px;
+   }
+   // .compilation__rating-imdb
+   // .compilation__rating-kinopoisk
+   &__rating-kinopoisk,
+   &__rating-imdb {
+      display: block;
+      font-size: 20px;
+      font-weight: bold;
+      border-radius: 10px;
+      background-color: #002560;
+      padding: 5px 5px 7px;
+      min-width: 90px;
+      span {
+         margin-top: 5px;
+         display: block;
+         color: rgba(255, 255, 255, 0.65);
+         font-size: 14px;
+         font-weight: normal;
+      }
+   }
+   // .compilation__info-list
+   &__info-list {
+      display: flex;
+      margin-bottom: 15px;
+   }
+   // .compilation__info-item
+   &__info-item {
+      font-size: 15px;
+      &::after {
+         content: "/";
+         margin-left: 6px;
+         color: #ffffff59;
+      }
+      &:last-child::after {
+         content: "";
+      }
+      & + & {
+         margin-left: 10px;
+      }
+   }
+   // .compilation__genres
+   &__genres {
+      display: inline-block;
+      background-color: #002560;
+      font-size: 13px;
+      text-transform: uppercase;
+      padding: 5px 8px;
+      font-weight: normal;
+   }
+   // .compilation__about
+   &__about {
+      padding: 20px 0 20px 60px;
+   }
+}
+
+.line {
+   background: #2756fd4f;
+   height: 8px;
+   position: absolute;
+   width: 100%;
+   left: 0;
+}
