@@ -8,7 +8,7 @@ import Spinner from '../spinner/spinner'
 import ModalSearch from '../modal-search/modal-search'
 import ModalLogin from '../modal-login/modal-login';
 
-import './app.scss';
+import './App.scss';
 import './fonts.scss';
 
 const MainPage = lazy(() => import('../pages/main-page'));
