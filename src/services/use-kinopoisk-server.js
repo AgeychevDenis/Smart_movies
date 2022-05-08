@@ -22,10 +22,10 @@ const useKinopoiskService = () => {
       return res.collection[id]
    }
 
-   // const getCompilationFilms = async (id) => {
-   //    const res = await request('http://myjson.dit.upm.es/api/bins/hnrt');
-   //    return res.collection[id].films[0].filmId
-   // }
+   const getCompilationFilms = async (id) => {
+      const res = await request('http://myjson.dit.upm.es/api/bins/hnrt');
+      return res.collection[id].films.map(elem => elem.filmId)
+   }
 
 
    const getMovieByName = async (name) => {
@@ -84,12 +84,22 @@ const useKinopoiskService = () => {
          year: res.year || '—',
          description: res.description || '—',
          shortDescription: res.shortDescription || '—',
-         countries: res.countries.map((item, i) => (i ? ', ' : '') + item.country),
-         genres: res.genres.map((item, i) => (i ? ', ' : '') + item.genre)
+         countries: res.countries ? res.countries.map((item, i) => (i ? ', ' : '') + item.country) : '—',
+         genres: res.genres ? res.genres.map((item, i) => (i ? ', ' : '') + item.genre) : '—'
       }
    }
 
-   return { loading, error, clearError, getAllCharacters, getCollection, getMovie, getMovieByName, getCompilation }
+   return {
+      loading,
+      error,
+      clearError,
+      getAllCharacters,
+      getCollection,
+      getMovie,
+      getMovieByName,
+      getCompilation,
+      getCompilationFilms
+   }
 }
 
 

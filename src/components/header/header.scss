@@ -108,7 +108,6 @@
             margin-left: 0;
          }
       }
-      transition: color 0.3s;
       &:hover .menu__link {
          color: #fff;
       }
@@ -124,6 +123,7 @@
    /* .menu__link */
    &__link {
       position: relative;
+      transition: color 0.3s;
    }
 }
 

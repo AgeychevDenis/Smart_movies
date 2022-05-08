@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import ErrorMessage from '../error-message/error-message';
+import Spinner from '../spinner/spinner';
 
 import useKinopoiskService from '../../services/use-kinopoisk-server';
 
@@ -8,7 +10,7 @@ import './content.scss';
 const Content = () => {
    const [collection, setCollectionList] = useState([]);
 
-   const { getCollection } = useKinopoiskService();
+   const { loading, error, getCollection } = useKinopoiskService();
 
    useEffect(() => {
 
@@ -40,6 +42,10 @@ const Content = () => {
 
    const items = renderItems(collection);
 
+   const errorMessage = error ? <ErrorMessage /> : null;
+   const spinner = loading ? <Spinner /> : null;
+   const content = !(loading || error) ? items : null;
+
    return (
       <section className="content">
          <div className="content__container container">
@@ -48,7 +54,9 @@ const Content = () => {
                   Подборки
                </Link>
                <div className="content__inner collection">
-                  {items}
+                  {errorMessage}
+                  {spinner}
+                  {content}
                </div>
             </div>
          </div>

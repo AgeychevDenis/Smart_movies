@@ -7,6 +7,7 @@
          top: 44%;
          font-weight: 700;
          font-size: 39px;
+         z-index: 1;
          &.swiper-button-next {
             right: -50px;
             @media (max-width: 1410px) {
@@ -122,6 +123,7 @@
    &__wrapper-title {
       color: #ffffffe8;
       padding-top: 12px;
+      line-height: 120%;
    }
    /* .promo__wrapper-subtitle */
    &__wrapper-subtitle {
