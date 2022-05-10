@@ -3,7 +3,7 @@ import { useHttp } from '../hooks/http.hook';
 const useKinopoiskService = () => {
    const { loading, request, error, clearError } = useHttp();
 
-   const _apiKey = 'e26ee2eb-f418-44d1-abcf-ce19e4e17c2e'
+   const _apiKey = 'f5fde001-c19f-421f-b047-8badee3fd5c8'
 
    const getAllCharacters = async () => {
       const res = await request('https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1', 'GET', null, {
@@ -18,20 +18,27 @@ const useKinopoiskService = () => {
    }
 
    const getCompilation = async (id) => {
-      const res = await request('https://myjson.dit.upm.es/api/bins/hnrt');
+      const res = await request('http://myjson.dit.upm.es/api/bins/gi9n');
       return res.collection[id]
    }
 
-   const getCompilationFilms = async (id) => {
-      const res = await request('http://myjson.dit.upm.es/api/bins/hnrt');
-      return res.collection[id].films.map(elem => elem.filmId)
-   }
+   // const getCompilationFilms = async (id) => {
+   //    const res = await request('http://myjson.dit.upm.es/api/bins/hnrt');
+   //    return res.collection[id].films.map(elem => elem.filmId)
+   // }
 
    const getMovieByName = async (name) => {
       const res = await request(`https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=${name}&page=1`, 'GET', null, {
          'X-API-KEY': _apiKey, 'Content-Type': 'application/json'
       });
       return res.films.map(_transformSearchMovie);
+   }
+
+   const getMovieID = async (id) => {
+      const res = await request(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}`, 'GET', null, {
+         'X-API-KEY': _apiKey, 'Content-Type': 'application/json'
+      });
+      return _transformMovieID(res)
    }
 
    const getMovie = async (id) => {
@@ -88,6 +95,23 @@ const useKinopoiskService = () => {
       }
    }
 
+
+   const _transformMovieID = (res) => {
+      return {
+         id: res.kinopoiskId,
+         name: res.nameRu,
+         imageUrl: res.posterUrlPreview,
+         age: res.ratingAgeLimits,
+         ratingImdb: res.ratingImdb || '—',
+         ratingKinopoisk: res.ratingKinopoisk || '—',
+         year: res.year || '—',
+         description: res.description || '—',
+         countries: res.countries,
+         time: res.filmLength,
+         genres: res.genres
+      }
+   }
+
    return {
       loading,
       error,
@@ -97,7 +121,7 @@ const useKinopoiskService = () => {
       getMovie,
       getMovieByName,
       getCompilation,
-      getCompilationFilms
+      getMovieID
    }
 }
 
