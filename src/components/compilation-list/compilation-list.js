@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const CompilationList = ({ films }) => {
 
-   console.log(films);
+   // console.log(films);
 
    function renderItems(arr) {
       const items = arr?.map((item, i) => {
@@ -13,7 +13,7 @@ const CompilationList = ({ films }) => {
                   <span className="compilation__cell">
                      {i + 1}
                   </span>
-                  <Link to="/" className="compilation__inner">
+                  <Link to={`/movie/${item.id}`} className="compilation__inner">
                      <div className="compilation__img">
                         <img src={item.imageUrl} alt="compilation__img" />
                      </div>

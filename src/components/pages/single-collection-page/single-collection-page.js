@@ -18,7 +18,7 @@ const SingleCollectionPage = () => {
 
    useEffect(() => {
       updateCompilation()
-      getMovieID(1338480).then(res => console.log(JSON.stringify(res)))
+      // getMovieID(1338480).then(res => console.log(JSON.stringify(res)))
 
    }, [compilationId])
 
