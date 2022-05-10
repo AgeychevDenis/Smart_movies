@@ -18,7 +18,7 @@ const useKinopoiskService = () => {
    }
 
    const getCompilation = async (id) => {
-      const res = await request('http://myjson.dit.upm.es/api/bins/gi9n');
+      const res = await request('https://myjson.dit.upm.es/api/bins/gi9n');
       return res.collection[id]
    }
 
