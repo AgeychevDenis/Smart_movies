@@ -72,7 +72,7 @@ const ModalSearch = ({ open, onClose }) => {
                <div className="popup__container">
                   <div className="popup__body">
                      <h1 className="popup__title">Поиск</h1>
-                     <Form>
+                     <Form className='popup__form-search'>
                         <Field
                            id="movieName"
                            name="movieName"

@@ -69,11 +69,12 @@ const Promo = () => {
                }}
                breakpoints={{
                   320: {
-                     width: 200,
+                     width: 130,
                      slidesPerView: 1,
-                     slidesPerGroup: 1
+                     slidesPerGroup: 1,
+                     freeMode: true
                   },
-                  1320: {
+                  890: {
                      width: 1280,
                      slidesPerView: 6
                   }
@@ -98,7 +99,7 @@ const Promo = () => {
    return (
       <section className="promo">
          <div className="promo__container container">
-            <h2 className="promo__title title">Рекомендуем вам посмотреть</h2>
+            <h2 className="promo__title title">Популярное</h2>
             <div className="promo__slider">
                {errorMessage}
                {skeleton}

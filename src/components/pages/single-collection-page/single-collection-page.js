@@ -13,17 +13,11 @@ const SingleCollectionPage = () => {
    const { compilationId } = useParams();
 
    const [compilation, setCompilationList] = useState({});
-   const [films, setFilms] = useState();
-   const [movie, setMovie] = useState([]);
 
-   const { getCompilation, loading, error, clearError, getCompilationFilms, getMovie } = useKinopoiskService();
+   const { getCompilation, loading, error, clearError } = useKinopoiskService();
 
    useEffect(() => {
       updateCompilation()
-
-      updateFilms()
-
-      // updateMovie()
 
       //eslint-disable-next-line
    }, [compilationId])
@@ -34,28 +28,13 @@ const SingleCollectionPage = () => {
          .then(onCompilationLoaded)
    }
 
-   const updateFilms = () => {
-      clearError();
-      getCompilationFilms(compilationId)
-         .then(onFilmsLoaded)
-   }
-
-   const updateMovie = () => {
-      clearError();
-      getMovie(films).then(onMovieLoaded)
-   }
-
    const onCompilationLoaded = (compilation) => {
       setCompilationList(compilation)
    }
 
-   const onFilmsLoaded = (films) => {
-      setFilms(films)
-   }
-
-   const onMovieLoaded = (movie) => {
-      setMovie(movie)
-   }
+   // const onMovieLoaded = (movie) => {
+   //    setMovie(movie)
+   // }
 
    const errorMessage = error ? <ErrorMessage /> : null;
    const spinner = loading ? <Spinner /> : null;

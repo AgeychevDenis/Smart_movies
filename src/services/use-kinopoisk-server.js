@@ -27,7 +27,6 @@ const useKinopoiskService = () => {
       return res.collection[id].films.map(elem => elem.filmId)
    }
 
-
    const getMovieByName = async (name) => {
       const res = await request(`https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=${name}&page=1`, 'GET', null, {
          'X-API-KEY': _apiKey, 'Content-Type': 'application/json'
