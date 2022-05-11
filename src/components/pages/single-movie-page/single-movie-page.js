@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 
 import useKinopoiskService from '../../../services/use-kinopoisk-server';
 import ErrorMessage from '../../error-message/error-message';
@@ -47,6 +48,10 @@ const View = ({ movie }) => {
 
    return (
       <section className='single-movie container'>
+         <Helmet>
+            <meta name="description" content={`${name} ${year}`} />
+            <title>{`${name} ${year}`}</title>
+         </Helmet>
          <div className="single-movie__wrapper">
             <div className="single-movie__img">
                <img src={imageUrl} alt={name} />

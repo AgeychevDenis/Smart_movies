@@ -109,11 +109,13 @@ h6 {
 .breadcrumbs {
    // .breadcrumbs__list
    &__list {
-      display: flex;
+      display: inline-flex;
       overflow: auto;
       font-weight: 400;
       color: #ffffff;
-      height: 19px;
+      &::-webkit-scrollbar {
+         width: 0;
+      }
    }
    // .breadcrumbs__list-item
    &__list-item {

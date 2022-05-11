@@ -27,7 +27,7 @@
    }
    /* .popup__input */
    &__input {
-      width: 100%;
+      flex: 1 1 80%;
       height: 40px;
       outline: none;
       padding: 0 15px;
@@ -73,9 +73,8 @@
 }
 
 .popup__btn.button__search {
-   right: -1px;
    z-index: 5;
-   width: 100px;
+   flex: 1 0 100px;
    height: 40px;
    background-color: #58585836;
    border-top-right-radius: 15px;
@@ -86,7 +85,7 @@
       background-color: #007aff;
    }
    @media (max-width: 600px) {
-      width: 75px;
+      flex: 1 0 75px;
    }
 }
 

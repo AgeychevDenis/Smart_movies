@@ -13,10 +13,10 @@ const CompilationList = ({ films }) => {
                   <span className="compilation__cell">
                      {i + 1}
                   </span>
-                  <Link to={`/movie/${item.id}`} className="compilation__inner">
-                     <div className="compilation__img">
+                  <div className="compilation__inner">
+                     <Link to={`/movie/${item.id}`} className="compilation__img">
                         <img src={item.imageUrl} alt="compilation__img" />
-                     </div>
+                     </Link>
                      <div className="compilation__description">
                         <h3 className="compilation__description-title">{item.name}</h3>
                         <div className="compilation__rating">
@@ -27,14 +27,14 @@ const CompilationList = ({ films }) => {
                            <li className='compilation__info-item'> {item.countries ? item.countries.map((item, i) => (i ? ', ' : '') + item.country) : '—'}</li>
                            <li className='compilation__info-item'>{item.year}</li>
                            <li className='compilation__info-item'>{item.time ? String(item.time).replace(/^(\d{1})(\d{2})$/, '$1ч $2 мин.') : '—'}</li >
-                           <li className='compilation__info-item'>{'+' + item.age.slice(3, 5)}</li>
+                           <li className='compilation__info-item'>{item.age ? '+' + item.age.slice(3, 5) : '—'}</li>
                         </ul>
                         {item.genres ? item.genres.map((item, i) => <p key={i} className="compilation__genres">{item.genre}</p>) : '—'}
                      </div>
-                  </Link>
+                  </div>
                </div>
                <p className="compilation__about">
-                  {item.description}
+                  {item.description ? `${item.description.slice(0, 300)}...` : 'Для этого фильма нет описания'}
                </p>
             </li>
          )

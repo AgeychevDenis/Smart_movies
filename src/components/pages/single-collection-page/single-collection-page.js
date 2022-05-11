@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+
 import useKinopoiskService from '../../../services/use-kinopoisk-server';
 import ErrorMessage from '../../error-message/error-message';
 import Spinner from '../../spinner/spinner';
@@ -13,13 +15,15 @@ const SingleCollectionPage = () => {
 
    const [compilation, setCompilationList] = useState([]);
 
-   const { getCompilation, loading, error, clearError, getMovieID } = useKinopoiskService();
+   const { getCompilation, loading, error, clearError } = useKinopoiskService();
 
+   // , getMovieID
 
    useEffect(() => {
       updateCompilation()
       // getMovieID(1338480).then(res => console.log(JSON.stringify(res)))
 
+      //eslint-disable-next-line
    }, [compilationId])
 
 
@@ -52,6 +56,10 @@ const View = ({ compilation }) => {
    const { title, subtitle, films } = compilation;
    return (
       <section className='compilation container'>
+         <Helmet>
+            <meta name="description" content={`${title}`} />
+            <title>{`${title}`}</title>
+         </Helmet>
          <ul className='breadcrumbs__list'>
             <li className='breadcrumbs__list-item'>
                <Link to="/" >Главная</Link>
