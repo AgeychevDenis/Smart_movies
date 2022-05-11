@@ -1,9 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const PopularPinemaPage = () => {
    return (
       <section className="promo">
-         <div className="promo__container container">
+         {/* <div className="promo__container container">
             <h3 to='/popular_cinema' className="promo__title title">Популярное</h3>
             <div className="promo__slider">
                <Link to={`/movie/${item.id}`} className="promo__card">
@@ -24,7 +25,7 @@ const PopularPinemaPage = () => {
                   </p>
                </Link>
             </div>
-         </div>
+         </div> */}
       </section >
    )
 }
