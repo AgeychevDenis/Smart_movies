@@ -99,7 +99,7 @@ const Promo = () => {
    return (
       <section className="promo">
          <div className="promo__container container">
-            <h2 className="promo__title title">Популярное</h2>
+            <Link to='/popular_cinema' className="promo__title title">Популярное</Link>
             <div className="promo__slider">
                {errorMessage}
                {skeleton}

@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import ErrorMessage from '../error-message/error-message';
-import Spinner from '../spinner/spinner';
+import ErrorMessage from '../../error-message/error-message';
+import Spinner from '../../spinner/spinner';
 
-import useKinopoiskService from '../../services/use-kinopoisk-server';
+import useKinopoiskService from '../../../services/use-kinopoisk-server';
 
-import './content.scss';
+import '../../content/content.scss';
 
-const Content = () => {
+const AllCollectionPage = () => {
    const [collection, setCollectionList] = useState([]);
+   const [newItemLoading, setnewItemLoading] = useState(false);
+   const [offset, setOffset] = useState(0);
 
    const { loading, error, getCollection } = useKinopoiskService();
 
@@ -24,7 +26,8 @@ const Content = () => {
    }
 
    function renderItems(arr) {
-      const items = arr.slice(0, 9).map((item) => {
+      const items = arr.map((item) => {
+
          return (
             <Link to={`/single_collection/${item.id}`} className="collection__item" key={item.id}>
                <img className="collection__item-img" src={item.imageUrl} alt={item.title} />
@@ -49,8 +52,8 @@ const Content = () => {
       <section className="content">
          <div className="content__container container">
             <div className="content__wrapper">
-               <Link to="/single_collection" className="content__title title icon-square">
-                  Подборки
+               <Link to="/" className="content__title title">
+                  Все подборки фильмов
                </Link>
                <div className="content__inner collection">
                   {errorMessage}
@@ -63,4 +66,4 @@ const Content = () => {
    )
 }
 
-export default Content;
+export default AllCollectionPage;

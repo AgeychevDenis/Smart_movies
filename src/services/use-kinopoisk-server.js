@@ -13,12 +13,12 @@ const useKinopoiskService = () => {
    }
 
    const getCollection = async () => {
-      const res = await request('https://myjson.dit.upm.es/api/bins/hnrt');
+      const res = await request('https://myjson.dit.upm.es/api/bins/50or');
       return res.collection.map(_transformCollection)
    }
 
    const getCompilation = async (id) => {
-      const res = await request('https://myjson.dit.upm.es/api/bins/gi9n');
+      const res = await request('https://myjson.dit.upm.es/api/bins/50or');
       return res.collection[id]
    }
 
