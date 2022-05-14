@@ -27,6 +27,7 @@
 .icon-square:before {
    content: "\e908";
    color: #fff;
+   transition: transform 0.2s ease-in;
 }
 .icon-video:before {
    content: "\e909";

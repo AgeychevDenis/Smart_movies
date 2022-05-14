@@ -52,9 +52,9 @@ const AllCollectionPage = () => {
       <section className="content">
          <div className="content__container container">
             <div className="content__wrapper">
-               <Link to="/" className="content__title title">
+               <h3 className="content__title title">
                   Все подборки фильмов
-               </Link>
+               </h3>
                <div className="content__inner collection">
                   {errorMessage}
                   {spinner}

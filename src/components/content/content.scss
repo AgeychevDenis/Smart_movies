@@ -8,10 +8,8 @@
    /* .content__title */
    &__title {
       transition: color 0.3s;
-      &:hover {
-         color: #2756fd;
-      }
       &:hover.icon-square:before {
+         transform: translateX(8px);
          color: #2756fd;
       }
    }
@@ -26,6 +24,10 @@
          margin: 20px auto;
       }
    }
+}
+
+a.content__title:hover {
+   color: #2756fd;
 }
 
 .collection {

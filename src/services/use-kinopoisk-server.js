@@ -5,8 +5,8 @@ const useKinopoiskService = () => {
 
    const _apiKey = 'f5fde001-c19f-421f-b047-8badee3fd5c8'
 
-   const getAllCharacters = async () => {
-      const res = await request('https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1', 'GET', null, {
+   const getAllCharacters = async (page = 1) => {
+      const res = await request(`https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=${page}`, 'GET', null, {
          'X-API-KEY': _apiKey, 'Content-Type': 'application/json'
       });
       return res.films.map(_transformCharacter);
