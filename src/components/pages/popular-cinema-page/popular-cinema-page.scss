@@ -1,8 +1,18 @@
 .promo {
    // .promo__body
    &__body {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-gap: 20px;
+      @media (max-width: 890px) {
+         grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+         grid-gap: 15px;
+         justify-items: center;
+      }
    }
+}
+
+.promo-popular__title {
+   display: block;
+   margin-bottom: 20px;
 }

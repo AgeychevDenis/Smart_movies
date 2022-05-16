@@ -3,7 +3,7 @@ import { useHttp } from '../hooks/http.hook';
 const useKinopoiskService = () => {
    const { loading, request, error, clearError } = useHttp();
 
-   const _apiKey = 'f5fde001-c19f-421f-b047-8badee3fd5c8'
+   const _apiKey = '95888346-d31c-438f-b3b4-23ac62a27afd'
 
    const getAllCharacters = async (page = 1) => {
       const res = await request(`https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=${page}`, 'GET', null, {
@@ -21,11 +21,6 @@ const useKinopoiskService = () => {
       const res = await request('https://myjson.dit.upm.es/api/bins/50or');
       return res.collection[id]
    }
-
-   // const getCompilationFilms = async (id) => {
-   //    const res = await request('http://myjson.dit.upm.es/api/bins/hnrt');
-   //    return res.collection[id].films.map(elem => elem.filmId)
-   // }
 
    const getMovieByName = async (name) => {
       const res = await request(`https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=${name}&page=1`, 'GET', null, {

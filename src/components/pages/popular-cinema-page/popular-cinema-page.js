@@ -10,26 +10,45 @@ import '../../promo/promo.scss';
 import './popular-cinema-page.scss';
 
 const PopularPinemaPage = () => {
-   const [charList, setCharList] = useState(null);
+   const [movies, setMovies] = useState([]);
+   const [currentPage, setCurrentPage] = useState(1);
+   const [fetching, setFetching] = useState(true);
 
    const { loading, error, getAllCharacters } = useKinopoiskService();
 
    useEffect(() => {
-
-      getAllCharacters(2)
-         .then(onCharListLoaded)
+      if (fetching) {
+         getAllCharacters(currentPage)
+            .then(
+               onMoviesListLoaded,
+               setCurrentPage(prevState => prevState < 20 ? prevState + 1 : prevState = 20)
+            )
+            .finally(() => setFetching(false));
+      }
       //eslint-disable-next-line
+   }, [fetching]);
+
+   useEffect(() => {
+      document.addEventListener('scroll', scrollHandler)
+      return function () {
+         document.removeEventListener('scroll', scrollHandler)
+      }
    }, [])
 
-   const onCharListLoaded = (charList) => {
-      setCharList(charList);
+   const onMoviesListLoaded = (newMovies) => {
+      setMovies([...movies, ...newMovies])
    }
 
-   console.log(charList);
+   const scrollHandler = (e) => {
+      if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100) {
+         setFetching(true)
+      } else {
+         setFetching(false)
+      }
+   }
 
    function renderItems(arr) {
       const items = arr?.map((item) => {
-
          return (
             <Link key={item.id} to={`/movie/${item.id}`} className="promo__card">
                <div className="promo__card-img">
@@ -50,12 +69,10 @@ const PopularPinemaPage = () => {
             </Link>
          )
       });
-      return (
-         items
-      )
+      return items;
    }
 
-   const items = renderItems(charList);
+   const items = renderItems(movies);
 
    const errorMessage = error ? <ErrorMessage /> : null;
    const skeleton = loading ?
@@ -68,11 +85,11 @@ const PopularPinemaPage = () => {
    return (
       <section className="promo">
          <div className="promo__container container">
-            <h3 className="promo__title title">Популярное</h3>
+            <h3 className="promo__title title promo-popular__title">Популярное</h3>
             <div className="promo__body">
-               {errorMessage}
-               {skeleton}
-               {content}
+               {/* {errorMessage}
+               {skeleton} */}
+               {items}
             </div>
          </div>
       </section >
