@@ -1,62 +1,60 @@
-import { Component } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import MenuItem from './menu-item/menu-item';
 import './header-menu.scss';
 
-class HeaderMenu extends Component {
-   constructor(props) {
-      super(props);
-      this.state = {
-         active: false,
-         data: [
-            { id: 1, subtitle: 'Популярное' },
-            { id: 2, subtitle: 'Подборки фильмов' },
-            { id: 3, subtitle: 'Смотрят сейчас' },
-            { id: 4, subtitle: 'Ожидаемое' },
-            { id: 5, subtitle: 'Лучшее' }
-         ],
-         data2: [
-            { id: 1, subtitle: 'Популярные актеры' }
-         ]
-      }
+const HeaderMenu = () => {
+   const [active, setActive] = useState(false);
+   const [openMenu, setOpenMenu] = useState(false);
+   const [openMenuActors, setOpenMenuActors] = useState(false);
+
+   const onActive = () => {
+      setActive(!active)
    }
 
-   onActive = () => {
-      this.setState(({ active }) => ({
-         active: !active
-      }));
+   const onClose = () => {
+      setOpenMenu(!openMenu)
    }
 
-   render() {
-      const { active, data, data2 } = this.state;
+   const onCloseActors = () => {
+      setOpenMenuActors(!openMenuActors)
+   }
 
-      let menuIcon = "menu__icon icon-menu";
-      let menuBody = "menu__body";
-
-
-      if (active) {
-         menuIcon += ' active';
-         menuBody += ' active';
-      }
-
-      return (
-         <div className="header__menu menu" >
-            <button onClick={this.onActive} type="button" className={menuIcon}><span></span></button>
-            <nav className={menuBody}>
-               <ul className="menu__list">
-                  <MenuItem title={'Что посмотреть'} data={data} />
-                  <li className="menu__item">
-                     <Link to="/" className="menu__link">Трейлеры</Link>
-                  </li>
-                  <MenuItem title={'Актеры'} data={data2} />
-                  <li className="menu__item">
-                     <Link to="/" className="menu__link">Сериалы</Link>
-                  </li>
-               </ul>
+   return (
+      <div className="header__menu menu" >
+         <button onClick={onActive} type="button" className={`${active ? 'menu__icon icon-menu active' : 'menu__icon icon-menu'}`}><span></span></button>
+         <ul className={`${active ? 'menu__body active' : 'menu__body'}`}>
+            <nav className="menu__list">
+               <li className="menu__item">
+                  <button onClick={onClose} type="button" className={`${openMenu ? 'menu__link menu__link-sub icon-square click' : 'menu__link menu__link-sub icon-square'}`}>Что посмотреть</button>
+                  <ul className={`${openMenu ? 'sub-menu__list open' : 'sub-menu__list'}`}>
+                     <li className="sub-menu__item">
+                        <Link to="/popular_cinema" onClick={onActive} className="sub-menu__link">Популярное</Link>
+                        <Link to="/single_collection" onClick={onActive} className="sub-menu__link">Подборки фильмов</Link>
+                        <Link to="/" className="sub-menu__link">Смотрят сейчас</Link>
+                        <Link to="/" className="sub-menu__link">Ожидаемое</Link>
+                        <Link to="/" className="sub-menu__link">Лучшее</Link>
+                     </li>
+                  </ul>
+               </li>
+               <li className="menu__item">
+                  <Link to="/" className="menu__link">Трейлеры</Link>
+               </li>
+               <li className="menu__item">
+                  <button onClick={onCloseActors} type="button" className={`${openMenuActors ? 'menu__link menu__link-sub icon-square click' : 'menu__link menu__link-sub icon-square'}`}>Актеры</button>
+                  <ul className={`${openMenuActors ? 'sub-menu__list open' : 'sub-menu__list'}`}>
+                     <li className="sub-menu__item">
+                        <Link to="/" className="sub-menu__link">Популярные актеры</Link>
+                     </li>
+                  </ul>
+               </li>
+               <li className="menu__item">
+                  <Link to="/" className="menu__link">Сериалы</Link>
+               </li>
             </nav>
-         </div >
-      )
-   }
+         </ul>
+      </div >
+   )
+
 }
 
 export default HeaderMenu;

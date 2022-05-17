@@ -4,8 +4,6 @@ import { Helmet } from 'react-helmet';
 import setContent from '../../../utils/setContent';
 
 import useKinopoiskService from '../../../services/use-kinopoisk-server';
-import ErrorMessage from '../../error-message/error-message';
-import Spinner from '../../spinner/spinner';
 
 import './single-movie-page.scss';
 
