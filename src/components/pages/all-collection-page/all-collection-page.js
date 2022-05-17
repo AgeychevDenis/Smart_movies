@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import ErrorMessage from '../../error-message/error-message';
-import Spinner from '../../spinner/spinner';
+import setContent from '../../../utils/setContent';
 
 import useKinopoiskService from '../../../services/use-kinopoisk-server';
 
@@ -9,15 +8,14 @@ import '../../content/content.scss';
 
 const AllCollectionPage = () => {
    const [collection, setCollectionList] = useState([]);
-   const [newItemLoading, setnewItemLoading] = useState(false);
-   const [offset, setOffset] = useState(0);
 
-   const { loading, error, getCollection } = useKinopoiskService();
+   const { getCollection, setProcess, process } = useKinopoiskService();
 
    useEffect(() => {
 
       getCollection()
          .then(onCollectionListLoaded)
+         .then(() => setProcess('confirmed'))
       //eslint-disable-next-line
    }, [])
 
@@ -42,12 +40,6 @@ const AllCollectionPage = () => {
       return items
    }
 
-   const items = renderItems(collection);
-
-   const errorMessage = error ? <ErrorMessage /> : null;
-   const spinner = loading ? <Spinner /> : null;
-   const content = !(loading || error) ? items : null;
-
    return (
       <section className="content">
          <div className="content__container container">
@@ -56,9 +48,7 @@ const AllCollectionPage = () => {
                   Все подборки фильмов
                </h3>
                <div className="content__inner collection">
-                  {errorMessage}
-                  {spinner}
-                  {content}
+                  {setContent(process, () => renderItems(collection))}
                </div>
             </div>
          </div>

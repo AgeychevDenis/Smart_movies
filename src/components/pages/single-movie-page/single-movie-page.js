@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
+import setContent from '../../../utils/setContent';
 
 import useKinopoiskService from '../../../services/use-kinopoisk-server';
 import ErrorMessage from '../../error-message/error-message';
@@ -13,7 +14,7 @@ const SingleMoviePage = () => {
    const { movieId } = useParams();
    const [movie, setMovie] = useState({});
 
-   const { loading, error, getMovie, clearError } = useKinopoiskService();
+   const { getMovie, clearError, setProcess, process } = useKinopoiskService();
 
    useEffect(() => {
       updateMovie()
@@ -24,27 +25,18 @@ const SingleMoviePage = () => {
       clearError();
       getMovie(movieId)
          .then(onMovieLoaded)
+         .then(() => setProcess('confirmed'))
    }
 
    const onMovieLoaded = (movie) => {
       setMovie(movie)
    }
 
-   const errorMessage = error ? <ErrorMessage /> : null;
-   const spinner = loading ? <Spinner /> : null;
-   const content = !(loading || error) ? <View movie={movie} /> : null;
-
-   return (
-      <>
-         {errorMessage}
-         {spinner}
-         {content}
-      </>
-   )
+   return setContent(process, View, movie)
 }
 
-const View = ({ movie }) => {
-   const { name, imageUrl, age, ratingImdb, ratingKinopoisk, year, description, shortDescription, countries, genres } = movie;
+const View = ({ data }) => {
+   const { name, imageUrl, age, ratingImdb, ratingKinopoisk, year, description, shortDescription, countries, genres } = data;
 
    return (
       <section className='single-movie container'>

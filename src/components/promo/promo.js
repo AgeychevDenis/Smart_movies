@@ -107,14 +107,6 @@ const Promo = () => {
       )
    }
 
-   // const errorMessage = error ? <ErrorMessage /> : null;
-   // const skeleton = loading ?
-   //    <div className='promo__skeleton'>
-   //       {Array(6).fill(0).map((_, i) => <Skeleton key={i} />)}
-   //    </div>
-   //    : null;
-   // const content = !(loading || error) ? items : null;
-
    return (
       <section className="promo">
          <div className="promo__container container">
