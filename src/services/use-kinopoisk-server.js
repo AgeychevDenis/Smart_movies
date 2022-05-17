@@ -1,7 +1,7 @@
 import { useHttp } from '../hooks/http.hook';
 
 const useKinopoiskService = () => {
-   const { loading, request, error, clearError } = useHttp();
+   const { loading, request, error, clearError, process, setProcess } = useHttp();
 
    const _apiKey = '95888346-d31c-438f-b3b4-23ac62a27afd'
 
@@ -110,6 +110,8 @@ const useKinopoiskService = () => {
    return {
       loading,
       error,
+      process,
+      setProcess,
       clearError,
       getAllCharacters,
       getCollection,

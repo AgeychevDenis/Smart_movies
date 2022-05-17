@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import useKinopoiskService from '../../services/use-kinopoisk-server';
 import ErrorMessage from '../error-message/error-message';
 import Skeleton from '../skeleton/skeleton';
+import Spinner from '../spinner/spinner';
 
 import PromoIcon from '../../assets/img/icon/sort.svg';
 import './swiper.scss'
@@ -14,15 +15,35 @@ import 'swiper/swiper-bundle.css';
 
 SwiperCore.use([Navigation, Pagination]);
 
+const setContent = (process, Component, data) => {
+   switch (process) {
+      case 'waiting':
+         return (
+            <div className='promo__skeleton'>
+               {Array(6).fill(0).map((_, i) => <Skeleton key={i} />)}
+            </div>
+         );
+      case 'loading':
+         return <Spinner />;
+      case 'confirmed':
+         return <Component data={data} />;
+      case 'error':
+         return <ErrorMessage />;
+      default:
+         throw new Error('Unexpected process state');
+   }
+}
+
 const Promo = () => {
    const [charList, setCharList] = useState([]);
 
-   const { loading, error, getAllCharacters } = useKinopoiskService();
+   const { getAllCharacters, setProcess, process } = useKinopoiskService();
 
    useEffect(() => {
 
       getAllCharacters()
          .then(onCharListLoaded)
+         .then(() => setProcess('confirmed'))
       //eslint-disable-next-line
    }, [])
 
@@ -86,24 +107,20 @@ const Promo = () => {
       )
    }
 
-   const items = renderItems(charList);
-
-   const errorMessage = error ? <ErrorMessage /> : null;
-   const skeleton = loading ?
-      <div className='promo__skeleton'>
-         {Array(6).fill(0).map((_, i) => <Skeleton key={i} />)}
-      </div>
-      : null;
-   const content = !(loading || error) ? items : null;
+   // const errorMessage = error ? <ErrorMessage /> : null;
+   // const skeleton = loading ?
+   //    <div className='promo__skeleton'>
+   //       {Array(6).fill(0).map((_, i) => <Skeleton key={i} />)}
+   //    </div>
+   //    : null;
+   // const content = !(loading || error) ? items : null;
 
    return (
       <section className="promo">
          <div className="promo__container container">
             <Link to='/popular_cinema' className="promo__title icon-square title">Популярное</Link>
             <div className="promo__slider">
-               {errorMessage}
-               {skeleton}
-               {content}
+               {setContent(process, () => renderItems(charList))}
                <button className='swiper-button-next'></button>
                <button className='swiper-button-prev'></button>
             </div>

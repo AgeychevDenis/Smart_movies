@@ -2,10 +2,9 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import setContent from '../../../utils/setContent';
 
 import useKinopoiskService from '../../../services/use-kinopoisk-server';
-import ErrorMessage from '../../error-message/error-message';
-import Spinner from '../../spinner/spinner';
 import CompilationList from '../../compilation-list/compilation-list';
 
 import './single-collection-page.scss'
@@ -15,7 +14,7 @@ const SingleCollectionPage = () => {
 
    const [compilation, setCompilationList] = useState([]);
 
-   const { getCompilation, loading, error, clearError } = useKinopoiskService();
+   const { getCompilation, clearError, setProcess, process } = useKinopoiskService();
 
    // , getMovieID
 
@@ -27,33 +26,27 @@ const SingleCollectionPage = () => {
    }, [compilationId])
 
 
-
    const updateCompilation = () => {
       clearError();
       getCompilation(compilationId)
          .then(onCompilationLoaded)
+         .then(() => setProcess('confirmed'))
    }
 
    const onCompilationLoaded = (compilation) => {
       setCompilationList(compilation)
    }
 
-   const errorMessage = error ? <ErrorMessage /> : null;
-   const spinner = loading ? <Spinner /> : null;
-   const content = !(loading || error) ? <View compilation={compilation} /> : null;
-
    return (
       <>
-         {errorMessage}
-         {spinner}
-         {content}
+         {setContent(process, View, compilation)}
       </>
    )
 }
 
-const View = ({ compilation }) => {
+const View = ({ data }) => {
 
-   const { title, subtitle, films } = compilation;
+   const { title, subtitle, films } = data;
    return (
       <section className='compilation container'>
          <Helmet>
