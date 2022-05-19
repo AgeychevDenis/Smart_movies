@@ -2,8 +2,6 @@ import { Link } from 'react-router-dom';
 
 const CompilationList = ({ films }) => {
 
-   // console.log(films);
-
    function renderItems(arr) {
       const items = arr?.map((item, i) => {
 
@@ -15,7 +13,7 @@ const CompilationList = ({ films }) => {
                   </span>
                   <div className="compilation__inner">
                      <Link to={`/movie/${item.id}`} className="compilation__img">
-                        <img src={item.imageUrl} alt="compilation__img" />
+                        <img src={item.imageUrl} alt={item.name} />
                      </Link>
                      <div className="compilation__description">
                         <h3 className="compilation__description-title">{item.name}</h3>
@@ -26,7 +24,7 @@ const CompilationList = ({ films }) => {
                         <ul className="compilation__info-list">
                            <li className='compilation__info-item'> {item.countries ? item.countries.map((item, i) => (i ? ', ' : '') + item.country) : '—'}</li>
                            <li className='compilation__info-item'>{item.year}</li>
-                           <li className='compilation__info-item'>{item.time ? String(item.time).replace(/^(\d{1})(\d{2})$/, '$1ч $2 мин.') : '—'}</li >
+                           <li className='compilation__info-item'>{item.time ? String(item.time).replace(/^(\d{1})(\d{2})$/, '$1 ч. $2 мин.') : '—'}</li >
                            <li className='compilation__info-item'>{item.age ? '+' + item.age.slice(3, 5) : '—'}</li>
                         </ul>
                         {item.genres ? item.genres.map((item, i) => <p key={i} className="compilation__genres">{item.genre}</p>) : '—'}
@@ -48,12 +46,7 @@ const CompilationList = ({ films }) => {
 
    const items = renderItems(films);
 
-   return (
-      <>
-         {items}
-      </>
-   )
-
+   return items
 }
 
 export default CompilationList;

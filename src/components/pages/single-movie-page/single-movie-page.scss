@@ -2,19 +2,24 @@
    color: #fff;
    /* .single-movie__img */
    &__img {
-      max-width: 300px;
-      max-height: 430px;
+      width: 300px;
+      padding-top: 430px;
       margin-right: 65px;
+      position: relative;
+      overflow: hidden;
       img {
          width: 100%;
+         position: absolute;
          image-rendering: -webkit-optimize-contrast;
+         top: 0;
       }
       @media (max-width: 940px) {
          margin-right: 40px;
       }
       @media (max-width: 660px) {
          float: left;
-         max-width: 225px;
+         width: 225px;
+         padding-top: 338px;
       }
       @media (max-width: 540px) {
          float: none;

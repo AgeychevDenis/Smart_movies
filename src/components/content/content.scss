@@ -60,9 +60,19 @@ a.content__title:hover {
    }
    /* .collection__item-img */
    &__item-img {
-      width: 100%;
+      position: relative;
+      padding-top: 64%;
+      overflow: hidden;
       border-radius: 10px;
-      image-rendering: -webkit-optimize-contrast;
+      & img.loaded-img {
+         opacity: 1;
+      }
+      img {
+         width: 100%;
+         image-rendering: -webkit-optimize-contrast;
+         position: absolute;
+         top: 0;
+      }
    }
    /* .collection__item-info */
    &__item-info {

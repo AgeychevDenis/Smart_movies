@@ -20,7 +20,7 @@ const MenuItem = (onClose, title) => {
 
    const items = data.map((item, i) => {
       return (
-         <SubMenuItem key={i} data={item.subtitle} />
+         <SubMenuItem data={item.subtitle} />
       )
    })
 

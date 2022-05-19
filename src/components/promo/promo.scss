@@ -94,18 +94,21 @@
    /* .promo__card-img */
    &__card-img {
       width: 200px;
-      height: 280px;
+      padding-top: 300px;
       overflow: hidden;
       border-radius: 10px;
       transition: transform 0.3s;
+      position: relative;
       & img {
          width: 100%;
          transition: all 0.3s;
          image-rendering: -webkit-optimize-contrast;
+         position: absolute;
+         top: 0;
       }
       @media (max-width: 890px) {
          width: 130px;
-         height: 193px;
+         padding-top: 193px;
          img {
             height: 100%;
          }
