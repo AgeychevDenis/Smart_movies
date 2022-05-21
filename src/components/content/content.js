@@ -25,7 +25,7 @@ const Content = () => {
 
    function renderItems(arr) {
 
-      const items = arr.slice(0, 9).map((item) => {
+      const items = arr.map((item) => {
          return (
             <Link to={`/single_collection/${item.id}`} className="collection__item" key={item.id}>
                <div className="collection__item-img">

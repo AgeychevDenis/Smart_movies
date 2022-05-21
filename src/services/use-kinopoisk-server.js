@@ -12,9 +12,9 @@ const useKinopoiskService = () => {
       return res.films.map(_transformCharacter);
    }
 
-   const getCollection = async () => {
+   const getCollection = async (initial = 0, prev = 9) => {
       const res = await request('https://myjson.dit.upm.es/api/bins/50or');
-      return res.collection.map(_transformCollection)
+      return res.collection.slice(initial, prev).map(_transformCollection)
    }
 
    const getCompilation = async (id) => {
@@ -29,18 +29,18 @@ const useKinopoiskService = () => {
       return res.films.map(_transformSearchMovie);
    }
 
-   const getMovieID = async (id) => {
-      const res = await request(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}`, 'GET', null, {
-         'X-API-KEY': _apiKey, 'Content-Type': 'application/json'
-      });
-      return _transformMovieID(res)
-   }
-
    const getMovie = async (id) => {
       const res = await request(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}`, 'GET', null, {
          'X-API-KEY': _apiKey, 'Content-Type': 'application/json'
       });
       return _transformMovie(res)
+   }
+
+   const getTrailer = async (id) => {
+      const res = await request(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}/videos`, 'GET', null, {
+         'X-API-KEY': _apiKey, 'Content-Type': 'application/json'
+      });
+      return _transformTrailer(res)
    }
 
    const _transformCharacter = (res) => {
@@ -90,20 +90,9 @@ const useKinopoiskService = () => {
       }
    }
 
-
-   const _transformMovieID = (res) => {
+   const _transformTrailer = (res) => {
       return {
-         id: res.kinopoiskId,
-         name: res.nameRu,
-         imageUrl: res.posterUrlPreview,
-         age: res.ratingAgeLimits,
-         ratingImdb: res.ratingImdb || '—',
-         ratingKinopoisk: res.ratingKinopoisk || '—',
-         year: res.year || '—',
-         description: res.description || '—',
-         countries: res.countries,
-         time: res.filmLength,
-         genres: res.genres
+         urls: res.items ? res.items.map(item => item.site === 'YOUTUBE' && item.url.replace(/^https:\/\/youtu.be\/|https:\/\/www.youtube.com\/watch\?v=/g, 'https://youtube.com/embed/')) : null
       }
    }
 
@@ -118,7 +107,7 @@ const useKinopoiskService = () => {
       getMovie,
       getMovieByName,
       getCompilation,
-      getMovieID
+      getTrailer
    }
 }
 

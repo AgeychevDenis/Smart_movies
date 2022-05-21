@@ -3,6 +3,7 @@
    /* .single-movie__img */
    &__img {
       width: 300px;
+      height: 430px;
       padding-top: 430px;
       margin-right: 65px;
       position: relative;
@@ -19,6 +20,7 @@
       @media (max-width: 660px) {
          float: left;
          width: 225px;
+         height: 338px;
          padding-top: 338px;
       }
       @media (max-width: 540px) {
@@ -135,11 +137,26 @@
    }
    /* .single-movie__plot */
    &__plot {
-      margin-bottom: 50px;
+      margin-bottom: 30px;
    }
    /* .single-movie__plot-text */
    &__plot-text {
       line-height: 1.38;
       font-weight: 400;
+   }
+   // .single-movie__trailer
+   &__trailer {
+      text-align: center;
+      @media (max-width: 610px) {
+         height: 50vw;
+      }
+      iframe {
+         width: 560px;
+         height: 315px;
+         @media (max-width: 610px) {
+            width: 100%;
+            height: 100%;
+         }
+      }
    }
 }

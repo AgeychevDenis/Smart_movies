@@ -1,40 +1,68 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import setContent from '../../../utils/setContent';
+import Iframe from 'react-iframe'
 
 import useKinopoiskService from '../../../services/use-kinopoisk-server';
 
 import './single-movie-page.scss';
 
+import ErrorMessage from '../../../components/error-message/error-message';
+import Spinner from '../../../components/spinner/spinner';
+
+const setContent = (process, Component, data, trailer) => {
+   switch (process) {
+      case 'waiting':
+         return <Spinner />;
+      case 'loading':
+         return <Spinner />;
+      case 'confirmed':
+         return <Component data={data} trailer={trailer} />;
+      case 'error':
+         return <ErrorMessage />;
+      default:
+         throw new Error('Unexpected process state');
+   }
+}
 
 const SingleMoviePage = () => {
    const { movieId } = useParams();
    const [movie, setMovie] = useState({});
+   const [trailer, setTrailer] = useState([])
 
-   const { getMovie, clearError, setProcess, process } = useKinopoiskService();
+   const { getMovie, clearError, setProcess, process, getTrailer } = useKinopoiskService();
 
    useEffect(() => {
       updateMovie()
       //eslint-disable-next-line
    }, [movieId])
 
+
    const updateMovie = () => {
       clearError();
       getMovie(movieId)
          .then(onMovieLoaded)
          .then(() => setProcess('confirmed'))
+      getTrailer(movieId)
+         .then(onTrailerLoaded)
    }
 
    const onMovieLoaded = (movie) => {
       setMovie(movie)
    }
 
-   return setContent(process, View, movie)
+   const onTrailerLoaded = (trailer) => {
+      setTrailer(trailer)
+   }
+
+   return setContent(process, View, movie, trailer)
 }
 
-const View = ({ data }) => {
+const View = ({ data, trailer }) => {
    const { name, imageUrl, age, ratingImdb, ratingKinopoisk, year, description, shortDescription, countries, genres } = data;
+   const { urls } = trailer;
+
+   const url = urls?.filter(url => url)[0];
 
    return (
       <section className='single-movie container'>
@@ -85,6 +113,16 @@ const View = ({ data }) => {
                {description}
             </p>
          </div>
+         {url ?
+            <div className="single-movie__trailer">
+               <Iframe url={url}
+                  id="myId"
+                  display="initial"
+                  position="relative" />
+            </div>
+            : null
+         }
+
       </section>
    )
 }

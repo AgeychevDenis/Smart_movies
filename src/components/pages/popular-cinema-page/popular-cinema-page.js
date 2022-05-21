@@ -24,6 +24,7 @@ const setContent = (process, Component, newMoviesLoading) => {
    }
 }
 
+
 const PopularPinemaPage = () => {
    const [movies, setMovies] = useState([]);
    const [newMoviesLoading, setNewMoviesLoading] = useState(false);
@@ -32,13 +33,15 @@ const PopularPinemaPage = () => {
 
    const { getAllCharacters, setProcess, process } = useKinopoiskService();
 
+   console.log(currentPage);
+
    useEffect(() => {
-      if (fetching) {
+      if (fetching && currentPage < 20) {
          !fetching ? setNewMoviesLoading(false) : setNewMoviesLoading(true);
          getAllCharacters(currentPage)
             .then(
                onMoviesListLoaded,
-               setCurrentPage(prevState => prevState < 20 ? prevState + 1 : prevState = 20)
+               setCurrentPage(prevState => prevState + 1)
             )
             .then(() => setProcess('confirmed'))
             .finally(() => setFetching(false));
@@ -52,8 +55,6 @@ const PopularPinemaPage = () => {
          document.removeEventListener('scroll', scrollHandler)
       }
    }, [])
-
-   console.log(newMoviesLoading);
 
    const onMoviesListLoaded = (newMovies) => {
       setMovies([...movies, ...newMovies])
