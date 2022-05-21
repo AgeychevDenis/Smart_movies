@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import useKinopoiskService from '../../../services/use-kinopoisk-server';
 import Spinner from '../../spinner/spinner';
 import ErrorMessage from '../../error-message/error-message';
+import { Helmet } from 'react-helmet';
 
 import '../../content/content.scss';
 
@@ -86,6 +87,10 @@ const AllCollectionPage = () => {
 
    return (
       <section className="content">
+         <Helmet>
+            <meta name="description" content='Все подборки фильмов' />
+            <title>Все подборки фильмов</title>
+         </Helmet>
          <div className="content__container container">
             <div className="content__wrapper">
                <h3 className="content__title title">

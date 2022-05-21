@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
 import Spinner from '../../spinner/spinner';
+import { Helmet } from 'react-helmet';
 
 import useKinopoiskService from '../../../services/use-kinopoisk-server';
 import ErrorMessage from '../../error-message/error-message';
 
 import PromoIcon from '../../../assets/img/icon/sort.svg';
 import '../../promo/promo.scss';
-import './popular-cinema-page.scss';
+import './single-page.scss';
 
 const setContent = (process, Component, newMoviesLoading) => {
    switch (process) {
@@ -24,21 +26,18 @@ const setContent = (process, Component, newMoviesLoading) => {
    }
 }
 
-
-const PopularPinemaPage = () => {
+const PopularPinemaPage = ({ typeMovie, titlePage }) => {
    const [movies, setMovies] = useState([]);
    const [newMoviesLoading, setNewMoviesLoading] = useState(false);
    const [currentPage, setCurrentPage] = useState(1);
    const [fetching, setFetching] = useState(true);
 
-   const { getAllCharacters, setProcess, process } = useKinopoiskService();
-
-   console.log(currentPage);
+   const { getAllMovies, setProcess, process } = useKinopoiskService();
 
    useEffect(() => {
       if (fetching && currentPage < 20) {
          !fetching ? setNewMoviesLoading(false) : setNewMoviesLoading(true);
-         getAllCharacters(currentPage)
+         getAllMovies(currentPage, typeMovie)
             .then(
                onMoviesListLoaded,
                setCurrentPage(prevState => prevState + 1)
@@ -54,7 +53,7 @@ const PopularPinemaPage = () => {
       return function () {
          document.removeEventListener('scroll', scrollHandler)
       }
-   }, [])
+   }, []);
 
    const onMoviesListLoaded = (newMovies) => {
       setMovies([...movies, ...newMovies])
@@ -70,7 +69,7 @@ const PopularPinemaPage = () => {
    }
 
    function renderItems(arr) {
-      const items = arr?.map((item) => {
+      const items = arr.map((item) => {
          return (
             <Link key={item.id} to={`/movie/${item.id}`} className="promo__card">
                <div className="promo__card-img">
@@ -97,8 +96,12 @@ const PopularPinemaPage = () => {
 
    return (
       <section className="promo">
+         <Helmet>
+            <meta name="description" content={titlePage} />
+            <title>{titlePage}</title>
+         </Helmet>
          <div className="promo__container container">
-            <h3 className="promo__title title promo-popular__title">Популярное</h3>
+            <h3 className="promo__title title promo-popular__title">{titlePage}</h3>
             <div className="promo__body">
                {setContent(process, () => renderItems(movies), newMoviesLoading)}
             </div>

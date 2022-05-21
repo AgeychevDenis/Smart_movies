@@ -37,11 +37,11 @@ const setContent = (process, Component, data) => {
 const Promo = () => {
    const [charList, setCharList] = useState([]);
 
-   const { getAllCharacters, setProcess, process } = useKinopoiskService();
+   const { getAllMovies, setProcess, process } = useKinopoiskService();
 
    useEffect(() => {
 
-      getAllCharacters()
+      getAllMovies(1, 'TOP_100_POPULAR_FILMS')
          .then(onCharListLoaded)
          .then(() => setProcess('confirmed'))
       //eslint-disable-next-line

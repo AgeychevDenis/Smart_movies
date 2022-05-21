@@ -3,10 +3,10 @@ import { useHttp } from '../hooks/http.hook';
 const useKinopoiskService = () => {
    const { loading, request, error, clearError, process, setProcess } = useHttp();
 
-   const _apiKey = '95888346-d31c-438f-b3b4-23ac62a27afd'
+   const _apiKey = '817e16ef-f08e-4086-b21e-0d3737b1b32d'
 
-   const getAllCharacters = async (page = 1) => {
-      const res = await request(`https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=${page}`, 'GET', null, {
+   const getAllMovies = async (page = 1, type) => {
+      const res = await request(`https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=${type}&page=${page}`, 'GET', null, {
          'X-API-KEY': _apiKey, 'Content-Type': 'application/json'
       });
       return res.films.map(_transformCharacter);
@@ -102,7 +102,7 @@ const useKinopoiskService = () => {
       process,
       setProcess,
       clearError,
-      getAllCharacters,
+      getAllMovies,
       getCollection,
       getMovie,
       getMovieByName,

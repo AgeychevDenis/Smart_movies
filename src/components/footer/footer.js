@@ -29,22 +29,22 @@ const Footer = () => {
                <div className="footer__top-list">
                   <ul className="footer-list">
                      <li className="footer-list__item">
-                        <Link to="/" className="footer-list__link">Подборки</Link>
+                        <Link to="/single_collection" className="footer-list__link">Подборки</Link>
                      </li>
                      <li className="footer-list__item">
-                        <Link to="/" className="footer-list__link">Трейлеры</Link>
+                        <Link to="/404page" className="footer-list__link">Трейлеры</Link>
                      </li>
                      <li className="footer-list__item">
-                        <Link to="/" className="footer-list__link">Сериалы</Link>
+                        <Link to="/404page" className="footer-list__link">Сериалы</Link>
                      </li>
                      <li className="footer-list__item">
-                        <Link to="/" className="footer-list__link">Актеры</Link>
+                        <Link to="/404page" className="footer-list__link">Актеры</Link>
                      </li>
                      <li className="footer-list__item">
-                        <Link to="/" className="footer-list__link">Контакты</Link>
+                        <Link to="/404page" className="footer-list__link">Контакты</Link>
                      </li>
                      <li className="footer-list__item">
-                        <Link to="/" className="footer-list__link">О нас</Link>
+                        <Link to="/404page" className="footer-list__link">О нас</Link>
                      </li>
                   </ul>
                </div>

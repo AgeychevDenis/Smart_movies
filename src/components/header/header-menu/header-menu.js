@@ -30,25 +30,25 @@ const HeaderMenu = () => {
                      <li className="sub-menu__item">
                         <Link to="/popular_cinema" onClick={onActive} className="sub-menu__link">Популярное</Link>
                         <Link to="/single_collection" onClick={onActive} className="sub-menu__link">Подборки фильмов</Link>
-                        <Link to="/" className="sub-menu__link">Смотрят сейчас</Link>
-                        <Link to="/" className="sub-menu__link">Ожидаемое</Link>
-                        <Link to="/" className="sub-menu__link">Лучшее</Link>
+                        <Link to="/404page" className="sub-menu__link">Смотрят сейчас</Link>
+                        <Link to="/await_films" className="sub-menu__link">Ожидаемое</Link>
+                        <Link to="/best_films" className="sub-menu__link">Лучшее</Link>
                      </li>
                   </ul>
                </li>
                <li className="menu__item">
-                  <Link to="/" className="menu__link">Трейлеры</Link>
+                  <Link to="/404page" className="menu__link">Трейлеры</Link>
                </li>
                <li className="menu__item">
                   <button onClick={onCloseActors} type="button" className={`${openMenuActors ? 'menu__link menu__link-sub icon-square click' : 'menu__link menu__link-sub icon-square'}`}>Актеры</button>
                   <ul className={`${openMenuActors ? 'sub-menu__list open' : 'sub-menu__list'}`}>
                      <li className="sub-menu__item">
-                        <Link to="/" className="sub-menu__link">Популярные актеры</Link>
+                        <Link to="/404page" className="sub-menu__link">Популярные актеры</Link>
                      </li>
                   </ul>
                </li>
                <li className="menu__item">
-                  <Link to="/" className="menu__link">Сериалы</Link>
+                  <Link to="/404page" className="menu__link">Сериалы</Link>
                </li>
             </nav>
          </ul>
