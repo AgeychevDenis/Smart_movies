@@ -8,6 +8,8 @@ import Spinner from '../spinner/spinner'
 import ModalSearch from '../modal-search/modal-search'
 import ModalLogin from '../modal-login/modal-login';
 
+import { PopularPage, BestPage, AwaitPage } from '../pages/all-page'
+
 import './App.scss';
 import './fonts.scss';
 
@@ -15,7 +17,6 @@ const MainPage = lazy(() => import('../pages/main-page'));
 const SingleMoviePage = lazy(() => import('../pages/single-movie-page/single-movie-page'));
 const SingleCollectionPage = lazy(() => import('../pages/single-collection-page/single-collection-page'));
 const AllCollectionPage = lazy(() => import('../pages/all-collection-page/all-collection-page'));
-const SinglePage = lazy(() => import('../pages/single-page/single-page'));
 
 
 function App() {
@@ -35,9 +36,9 @@ function App() {
                      <Route path="/movie/:movieId" element={<SingleMoviePage />} />
                      <Route path="/single_collection/:compilationId" element={<SingleCollectionPage />} />
                      <Route path="/single_collection" element={<AllCollectionPage />} />
-                     <Route path="/popular_cinema" element={<SinglePage typeMovie='TOP_100_POPULAR_FILMS' titlePage='Популярное' />} />
-                     <Route path="/best_films" element={<SinglePage typeMovie='TOP_250_BEST_FILMS' titlePage='Лучшее' />} />
-                     <Route path="/await_films" element={<SinglePage typeMovie='TOP_AWAIT_FILMS' titlePage='Ожидаемое' />} />
+                     <Route path="/popular_films" element={<PopularPage />} />
+                     <Route path="/best_films" element={<BestPage />} />
+                     <Route path="/await_films" element={<AwaitPage />} />
                      <Route path="*" element={<Page404 />} />
                   </Routes>
                </Suspense>

@@ -46,8 +46,6 @@ const AllCollectionPage = () => {
       //eslint-disable-next-line
    }, [fetching]);
 
-   console.log("render");
-
    useEffect(() => {
       document.addEventListener('scroll', scrollHandler)
       return function () {

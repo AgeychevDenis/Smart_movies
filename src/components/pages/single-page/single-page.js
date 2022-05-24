@@ -26,7 +26,7 @@ const setContent = (process, Component, newMoviesLoading) => {
    }
 }
 
-const PopularPinemaPage = ({ typeMovie, titlePage }) => {
+const SinglePage = ({ typeMovie, titlePage }) => {
    const [movies, setMovies] = useState([]);
    const [newMoviesLoading, setNewMoviesLoading] = useState(false);
    const [currentPage, setCurrentPage] = useState(1);
@@ -110,4 +110,4 @@ const PopularPinemaPage = ({ typeMovie, titlePage }) => {
    )
 }
 
-export default PopularPinemaPage;
+export default SinglePage;
