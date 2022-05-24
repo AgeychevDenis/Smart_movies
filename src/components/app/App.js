@@ -1,23 +1,25 @@
-import { useState, lazy, Suspense } from 'react';
+import { useState, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import { Page404 } from '../pages';
 import Header from '../header/header';
 import Footer from '../footer/footer';
 import Spinner from '../spinner/spinner'
 import ModalSearch from '../modal-search/modal-search'
 import ModalLogin from '../modal-login/modal-login';
 
-import { PopularPage, BestPage, AwaitPage } from '../pages/all-page'
+import {
+   Page404,
+   AllCollectionPage,
+   SingleCollectionPage,
+   SingleMoviePage,
+   PopularPage,
+   BestPage,
+   AwaitPage,
+   MainPage
+} from '../pages';
 
 import './App.scss';
 import './fonts.scss';
-
-const MainPage = lazy(() => import('../pages/main-page'));
-const SingleMoviePage = lazy(() => import('../pages/single-movie-page/single-movie-page'));
-const SingleCollectionPage = lazy(() => import('../pages/single-collection-page/single-collection-page'));
-const AllCollectionPage = lazy(() => import('../pages/all-collection-page/all-collection-page'));
-
 
 function App() {
    const [modalSearch, setModalSearch] = useState(false)
