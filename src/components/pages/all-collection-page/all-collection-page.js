@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import useKinopoiskService from '../../../services/use-kinopoisk-server';
+import { Helmet } from 'react-helmet';
+
 import Spinner from '../../spinner/spinner';
 import ErrorMessage from '../../error-message/error-message';
-import { Helmet } from 'react-helmet';
+import Breadcrumbs from '../../breadcrumbs/breadcrumbs';
+
+import useKinopoiskService from '../../../services/use-kinopoisk-server';
 
 import '../../content/content.scss';
 
@@ -64,11 +67,15 @@ const AllCollectionPage = () => {
       }
    }
 
+   const breadcrumbs = [
+      { link: '/', title: 'Главная' },
+      { link: '/', title: 'Все подборки фильмов' }
+   ]
+
    function renderItems(arr) {
       const items = arr.map((item) => {
-
          return (
-            <Link to={`/single_collection/${item.id}`} className="collection__item" key={item.id}>
+            <Link to={`/single_collection/${item.id}`} className='collection__item' key={item.id}>
                <div className="collection__item-img">
                   <img src={item.imageUrl} alt={item.title} />
                </div>
@@ -77,9 +84,9 @@ const AllCollectionPage = () => {
                   <div className="collection__item-subtitle">{item.subtitle}</div>
                </div>
             </Link >
+
          )
       });
-
       return items
    }
 
@@ -90,6 +97,7 @@ const AllCollectionPage = () => {
             <title>Все подборки фильмов</title>
          </Helmet>
          <div className="content__container container">
+            <Breadcrumbs props={breadcrumbs} />
             <div className="content__wrapper">
                <h3 className="content__title title">
                   Все подборки фильмов

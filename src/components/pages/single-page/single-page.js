@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Spinner from '../../spinner/spinner';
 import { Helmet } from 'react-helmet';
+import Breadcrumbs from '../../breadcrumbs/breadcrumbs';
 
 import useKinopoiskService from '../../../services/use-kinopoisk-server';
 import ErrorMessage from '../../error-message/error-message';
@@ -68,6 +69,11 @@ const SinglePage = ({ typeMovie, titlePage }) => {
       }
    }
 
+   const breadcrumbs = [
+      { link: '/', title: 'Главная' },
+      { link: '/', title: titlePage }
+   ]
+
    function renderItems(arr) {
       const items = arr.map((item) => {
          return (
@@ -101,6 +107,7 @@ const SinglePage = ({ typeMovie, titlePage }) => {
             <title>{titlePage}</title>
          </Helmet>
          <div className="promo__container container">
+            <Breadcrumbs props={breadcrumbs} />
             <h3 className="promo__title title promo-popular__title">{titlePage}</h3>
             <div className="promo__body">
                {setContent(process, () => renderItems(movies), newMoviesLoading)}

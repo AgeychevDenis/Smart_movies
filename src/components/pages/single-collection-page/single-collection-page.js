@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+
 import setContent from '../../../utils/setContent';
+import Breadcrumbs from '../../breadcrumbs/breadcrumbs';
 
 import useKinopoiskService from '../../../services/use-kinopoisk-server';
 import CompilationList from '../../compilation-list/compilation-list';
@@ -47,23 +48,20 @@ const SingleCollectionPage = () => {
 const View = ({ data }) => {
 
    const { title, subtitle, films } = data;
+
+   const breadcrumbs = [
+      { link: '/', title: 'Главная' },
+      { link: '/single_collection', title: 'Подборки фильмов' },
+      { link: '/', title: title }
+   ]
+
    return (
       <section className='compilation container'>
          <Helmet>
             <meta name="description" content={`${title}`} />
             <title>{`${title}`}</title>
          </Helmet>
-         <ul className='breadcrumbs__list'>
-            <li className='breadcrumbs__list-item'>
-               <Link to="/" >Главная</Link>
-            </li>
-            <li className='breadcrumbs__list-item'>
-               <Link to="/">Подборки фильмов</Link>
-            </li>
-            <li className='breadcrumbs__list-item'>
-               <Link to="/">{title}</Link>
-            </li>
-         </ul>
+         <Breadcrumbs props={breadcrumbs} />
          <h2 className="compilation__title">{title}</h2>
          <p className="compilation__subtitle">{subtitle}</p>
          <div className="line"></div>

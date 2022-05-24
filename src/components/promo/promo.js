@@ -110,7 +110,7 @@ const Promo = () => {
    return (
       <section className="promo">
          <div className="promo__container container">
-            <Link to='/popular_cinema' className="promo__title icon-square title">Популярное</Link>
+            <Link to='/popular_films' className="promo__title icon-square title">Популярное</Link>
             <div className="promo__slider">
                {setContent(process, () => renderItems(charList))}
                <button className='swiper-button-next'></button>
