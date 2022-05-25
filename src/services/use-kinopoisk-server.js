@@ -13,12 +13,12 @@ const useKinopoiskService = () => {
    }
 
    const getCollection = async (initial = 0, prev = 9) => {
-      const res = await request('https://myjson.dit.upm.es/api/bins/50or');
+      const res = await request('https://myjson.dit.upm.es/api/bins/3z9j');
       return res.collection.slice(initial, prev).map(_transformCollection)
    }
 
    const getCompilation = async (id) => {
-      const res = await request('https://myjson.dit.upm.es/api/bins/50or');
+      const res = await request('https://myjson.dit.upm.es/api/bins/3z9j');
       return res.collection[id]
    }
 
@@ -96,6 +96,41 @@ const useKinopoiskService = () => {
       }
    }
 
+   //===Test=====================================================================================================================================================
+
+   const getMovieID = async (id) => {
+      const res = await request(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}`, 'GET', null, {
+         'X-API-KEY': _apiKey, 'Content-Type': 'application/json'
+      });
+      return _transformMovieID(res)
+   }
+
+   const getMovieSlide = async (id) => {
+      const res = await request(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}`, 'GET', null, {
+         'X-API-KEY': _apiKey, 'Content-Type': 'application/json'
+      });
+      return res
+   }
+
+   const _transformMovieID = (res) => {
+      return {
+         id: res.kinopoiskId,
+         name: res.nameRu,
+         imageUrl: res.posterUrlPreview,
+         age: res.ratingAgeLimits,
+         ratingImdb: res.ratingImdb || '—',
+         ratingKinopoisk: res.ratingKinopoisk || '—',
+         year: res.year || '—',
+         description: res.description || '—',
+         countries: res.countries,
+         time: res.filmLength,
+         genres: res.genres
+      }
+   }
+
+   //========================================================================================================================================================
+
+
    return {
       loading,
       error,
@@ -107,7 +142,9 @@ const useKinopoiskService = () => {
       getMovie,
       getMovieByName,
       getCompilation,
-      getTrailer
+      getTrailer,
+      getMovieID, // Test
+      getMovieSlide // Test
    }
 }
 

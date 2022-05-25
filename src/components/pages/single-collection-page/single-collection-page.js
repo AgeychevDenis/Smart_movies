@@ -15,13 +15,13 @@ const SingleCollectionPage = () => {
 
    const [compilation, setCompilationList] = useState([]);
 
-   const { getCompilation, clearError, setProcess, process } = useKinopoiskService();
+   const { getCompilation, clearError, setProcess, process, getMovieID } = useKinopoiskService();
 
    // , getMovieID
 
    useEffect(() => {
       updateCompilation()
-      // getMovieID(1338480).then(res => console.log(JSON.stringify(res)))
+      getMovieID(1202296).then(res => console.log(JSON.stringify(res)))
 
       //eslint-disable-next-line
    }, [compilationId])

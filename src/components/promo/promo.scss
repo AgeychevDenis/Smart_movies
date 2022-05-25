@@ -1,4 +1,8 @@
 .promo {
+   margin-bottom: 50px;
+   @media (max-width: 650px) {
+      margin-bottom: 30px;
+   }
    /* .promo__slider */
    &__slider {
       position: relative;
@@ -35,7 +39,6 @@
    &__wrapper {
       display: flex;
       position: relative;
-      margin-bottom: 50px;
       transition: all 0.3s;
       left: 0;
    }
@@ -64,24 +67,26 @@
             display: none;
          }
       }
-      &:hover::before {
-         opacity: 1;
-         transform: scale(1.05);
-      }
-      &:hover .promo__content {
-         opacity: 1;
-      }
-      &:hover img {
-         transform: scale(1.05);
-      }
-      &:hover .promo__wrapper-title {
-         color: #fff;
+      @media (any-hover: hover) {
+         &:hover::before {
+            opacity: 1;
+            transform: scale(1.05);
+         }
+         &:hover .promo__content {
+            opacity: 1;
+         }
+         &:hover img {
+            transform: scale(1.05);
+         }
+         &:hover .promo__wrapper-title {
+            color: #fff;
+         }
+         &:hover .promo__card-img {
+            transform: scale(1.05);
+         }
       }
       &:last-child {
          margin-right: 0;
-      }
-      &:hover .promo__card-img {
-         transform: scale(1.05);
       }
       @media (max-width: 890px) {
          width: 130px;

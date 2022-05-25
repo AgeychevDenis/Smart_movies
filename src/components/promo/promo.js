@@ -35,20 +35,20 @@ const setContent = (process, Component, data) => {
 }
 
 const Promo = () => {
-   const [charList, setCharList] = useState([]);
+   const [movieList, setMovieList] = useState([]);
 
    const { getAllMovies, setProcess, process } = useKinopoiskService();
 
    useEffect(() => {
 
       getAllMovies(1, 'TOP_100_POPULAR_FILMS')
-         .then(onCharListLoaded)
+         .then(onMovieListLoaded)
          .then(() => setProcess('confirmed'))
       //eslint-disable-next-line
    }, [])
 
-   const onCharListLoaded = (charList) => {
-      setCharList(charList);
+   const onMovieListLoaded = (movieList) => {
+      setMovieList(movieList);
    }
 
    function renderItems(arr) {
@@ -85,8 +85,8 @@ const Promo = () => {
                slidesPerView={6}
                slidesPerGroup={6}
                navigation={{
-                  nextEl: '.swiper-button-next',
-                  prevEl: '.swiper-button-prev',
+                  nextEl: '.promo__button-next',
+                  prevEl: '.promo__button-prev',
                }}
                breakpoints={{
                   320: {
@@ -112,9 +112,9 @@ const Promo = () => {
          <div className="promo__container container">
             <Link to='/popular_films' className="promo__title icon-square title">Популярное</Link>
             <div className="promo__slider">
-               {setContent(process, () => renderItems(charList))}
-               <button className='swiper-button-next'></button>
-               <button className='swiper-button-prev'></button>
+               {setContent(process, () => renderItems(movieList))}
+               <button className='promo__button-next swiper-button-next'></button>
+               <button className='promo__button-prev swiper-button-prev'></button>
             </div>
          </div>
       </section >

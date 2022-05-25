@@ -73,6 +73,7 @@
    /* .menu__list */
    &__list {
       display: flex;
+      align-items: flex-start;
       margin-left: 50px;
       @media (max-width: 890px) {
          display: block;
@@ -116,14 +117,12 @@
          color: #fff;
          padding: 15px 0;
       }
-      button {
-         font-weight: 700;
-      }
    }
    /* .menu__link */
    &__link {
       position: relative;
       transition: color 0.3s;
+      font-weight: 600;
    }
 }
 
