@@ -32,7 +32,7 @@
       object-fit: cover;
       object-position: top;
       border-radius: 15px;
-      // image-rendering: -webkit-optimize-contrast;
+      image-rendering: -webkit-optimize-contrast;
       @media (max-width: 1325px) {
          height: 40vw;
       }

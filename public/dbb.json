@@ -1,0 +1,25 @@
+{
+   "data": [
+      {
+         "id": 1234853,
+         "title": "Мистер Нокаут",
+         "discription": "Упрямый тренер и любимая девушка помогают юноше стать чемпионом. Драма о советском боксере Валерии Попенченко",
+         "coverUrl": "https://i.ibb.co/SnXgfpj/orig-min.jpg",
+         "logoUrl": "https://i.ibb.co/991hX3R/orig-min.png"
+      },
+      {
+         "id": 1100777,
+         "title": "Триггер",
+         "discription": "Страшная трагедия вынуждает психолога-провокатора вернуться к практике. Напряженная драма с Максимом Матвеевым",
+         "coverUrl": "https://i.ibb.co/TLqT4xc/orig-1-min.jpg",
+         "logoUrl": "https://i.ibb.co/XFXm7jC/orig-1-min.png"
+      },
+      {
+         "id": 4642708,
+         "title": "Нулевой пациент",
+         "discription": "Врач в Элисте сталкивается с первой вспышкой ВИЧ в СССР. Сериал про людей перед лицом неизвестности",
+         "coverUrl": "https://i.ibb.co/RbxmXGz/orig-2-min.jpg",
+         "logoUrl": "https://i.ibb.co/3RnZH2Z/orig-2-min.png"
+      }
+   ]
+}

@@ -22,6 +22,11 @@ const useKinopoiskService = () => {
       return res.collection[id]
    }
 
+   const getMovieSlider = async () => {
+      const res = await request('https://myjson.dit.upm.es/api/bins/3mx3');
+      return res.data
+   }
+
    const getMovieByName = async (name) => {
       const res = await request(`https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=${name}&page=1`, 'GET', null, {
          'X-API-KEY': _apiKey, 'Content-Type': 'application/json'
@@ -143,6 +148,7 @@ const useKinopoiskService = () => {
       getMovieByName,
       getCompilation,
       getTrailer,
+      getMovieSlider,
       getMovieID, // Test
       getMovieSlide // Test
    }
