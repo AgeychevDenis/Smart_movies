@@ -57,6 +57,7 @@ const Slider = () => {
                   disableOnInteraction: true
                }}
                speed={500}
+               spaceBetween={10}
             >
                <div className="slider__wrapper">
                   {slide}
