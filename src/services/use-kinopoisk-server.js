@@ -23,7 +23,7 @@ const useKinopoiskService = () => {
    }
 
    const getMovieSlider = async () => {
-      const res = await request('https://myjson.dit.upm.es/api/bins/3mx3');
+      const res = await request('https://myjson.dit.upm.es/api/bins/gs2f');
       return res.data
    }
 
