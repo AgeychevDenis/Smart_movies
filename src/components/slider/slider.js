@@ -31,8 +31,8 @@ const Slider = () => {
 
       const slide = arr.map(slide => {
          return (
-            <SwiperSlide>
-               <Link className='slider__slide' key={slide.id} to={`/movie/${slide.id}`} >
+            <SwiperSlide key={slide.id}>
+               <Link className='slider__slide' to={`/movie/${slide.id}`} >
                   <img className='slider__slide-img' src={slide.coverUrl} alt={slide.title} />
                   <div className="slider__slide-body">
                      <img className="slider__slide-title" src={slide.logoUrl} alt={slide.title} />
@@ -53,7 +53,7 @@ const Slider = () => {
                }}
                loop={true}
                autoplay={{
-                  delay: 4000,
+                  delay: 5000,
                   disableOnInteraction: true
                }}
                speed={500}

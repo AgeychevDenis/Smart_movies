@@ -3,7 +3,7 @@ import { useHttp } from '../hooks/http.hook';
 const useKinopoiskService = () => {
    const { loading, request, error, clearError, process, setProcess } = useHttp();
 
-   const _apiKey = '817e16ef-f08e-4086-b21e-0d3737b1b32d'
+   const _apiKey = 'e26ee2eb-f418-44d1-abcf-ce19e4e17c2e'
 
    const getAllMovies = async (page = 1, type) => {
       const res = await request(`https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=${type}&page=${page}`, 'GET', null, {
@@ -13,12 +13,12 @@ const useKinopoiskService = () => {
    }
 
    const getCollection = async (initial = 0, prev = 9) => {
-      const res = await request('https://myjson.dit.upm.es/api/bins/3z9j');
+      const res = await request('https://myjson.dit.upm.es/api/bins/g6gn');
       return res.collection.slice(initial, prev).map(_transformCollection)
    }
 
    const getCompilation = async (id) => {
-      const res = await request('https://myjson.dit.upm.es/api/bins/3z9j');
+      const res = await request('https://myjson.dit.upm.es/api/bins/g6gn');
       return res.collection[id]
    }
 

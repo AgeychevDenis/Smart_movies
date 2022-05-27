@@ -21,7 +21,7 @@ const SingleCollectionPage = () => {
 
    useEffect(() => {
       updateCompilation()
-      // getMovieID(1202296).then(res => console.log(JSON.stringify(res)))
+      // getMovieID(1022484).then(res => console.log(JSON.stringify(res)))
 
       //eslint-disable-next-line
    }, [compilationId])
