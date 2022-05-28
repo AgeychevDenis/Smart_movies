@@ -30,6 +30,7 @@ SMART - это ваш помощник по выбору фильмов. Вам 
 
 ![sec](https://user-images.githubusercontent.com/83320431/170652096-d350eebf-5eb7-479b-a1c1-8f64ccfb8b5c.gif)
 
+
 ## *Запуск проекта* ▶️
 
 Для запуска проекта вам необходимо войти в папку - :file_folder: react-smart_movies
