@@ -1,4 +1,4 @@
-# **Smart** :clapper:
+# **Smart** :clapper
 
 ### :earth_asia: [Сайт проекта "Smart - подборки кино"](https://react-smart-movies.vercel.app)
 
@@ -10,11 +10,23 @@ SMART - это ваш помощник по выбору фильмов. Вам 
 
 ![main](https://user-images.githubusercontent.com/83320431/170647042-74274242-3800-4f5b-aff4-8c02d15c711f.gif)
 
+<br>
+<br>
+
 *Во вкладке «Популярное» - самые популярные фильмы на сегодня (По версии ”Кинопоиска”).*
+
+<br>
+<br>
 
 ![popular](https://user-images.githubusercontent.com/83320431/170650601-b8a81713-88e1-481e-807a-7046557edb33.gif)
 
+<br>
+<br>
+
 *Также на сайте реализован поиск по конкретному фильму*
+
+<br>
+<br>
 
 ![sec](https://user-images.githubusercontent.com/83320431/170652096-d350eebf-5eb7-479b-a1c1-8f64ccfb8b5c.gif)
 

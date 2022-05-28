@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 const CompilationList = ({ films }) => {
+   const [showAll, setShowAll] = useState([false, 0])
 
    function renderItems(arr) {
       const items = arr?.map((item, i) => {
@@ -32,7 +34,12 @@ const CompilationList = ({ films }) => {
                   </div>
                </div>
                <p className="compilation__about">
-                  {item.description ? `${item.description.slice(0, 300)}...` : 'Для этого фильма нет описания'}
+                  {showAll[0] && showAll[1] === i ? item.description : item.description.slice(0, 200)}
+                  {item.description.length > 200 &&
+                     <span onClick={() => setShowAll([!showAll[0], i])}>
+                        {showAll[0] && showAll[1] === i ? ' Скрыть' : ' Читать ещё'}
+                     </span>
+                  }
                </p>
             </li>
          )
@@ -46,7 +53,7 @@ const CompilationList = ({ films }) => {
 
    const items = renderItems(films);
 
-   return items
+   return items;
 }
 
 export default CompilationList;

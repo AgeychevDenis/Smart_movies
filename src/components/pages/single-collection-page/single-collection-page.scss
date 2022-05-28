@@ -196,6 +196,10 @@
    &__about {
       padding: 20px 0 20px 60px;
       line-height: 120%;
+      span {
+         color: #ffffff96;
+         cursor: pointer;
+      }
       @media (max-width: 890px) {
          padding: 10px 0;
          font-size: 15px;
