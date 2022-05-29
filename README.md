@@ -1,4 +1,4 @@
-# **Smart** :clapper
+# **Smart** :clapper:
 
 ### :earth_asia: [Сайт проекта "Smart - подборки кино"](https://react-smart-movies.vercel.app)
 
