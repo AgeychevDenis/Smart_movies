@@ -36,8 +36,8 @@ const CompilationList = ({ films }) => {
                <p className="compilation__about">
                   {showAll[0] && showAll[1] === i ? item.description : item.description.slice(0, 200)}
                   {item.description.length > 200 &&
-                     <span onClick={() => setShowAll([!showAll[0], i])}>
-                        {showAll[0] && showAll[1] === i ? ' Скрыть' : ' Читать ещё'}
+                     <span onClick={() => setShowAll([true, i])}>
+                        {showAll[0] && showAll[1] === i ? null : ' Читать ещё'}
                      </span>
                   }
                </p>

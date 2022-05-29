@@ -18,13 +18,13 @@ SwiperCore.use([Navigation, Pagination]);
 const setContent = (process, Component, data) => {
    switch (process) {
       case 'waiting':
+         return <Spinner />;
+      case 'loading':
          return (
             <div className='promo__skeleton'>
                {Array(6).fill(0).map((_, i) => <Skeleton key={i} />)}
             </div>
          );
-      case 'loading':
-         return <Spinner />;
       case 'confirmed':
          return <Component data={data} />;
       case 'error':
