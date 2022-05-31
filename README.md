@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-
-# **Smart** :clapper
-
-=======
-
 # **Smart** :clapper:*
-
->>>>>>> ccd7310cfc972eced14c0720d858d10ea4ccbcdf
 
 ### :earth_asia: [Сайт проекта "Smart - подборки кино"](https://react-smart-movies.vercel.app)
 
