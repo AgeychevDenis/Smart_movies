@@ -3,7 +3,7 @@ import { useState } from 'react';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage as FormikErrorMessage } from 'formik';
-import ErrorMessage from '../error-message/error-message';
+import ErrorMessage from '../error-message';
 
 
 import useKinopoiskService from '../../services/use-kinopoisk-server';

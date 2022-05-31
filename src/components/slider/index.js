@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Autoplay } from 'swiper';
 import setContent from '../../utils/setContent';
+import Skeleton from './skeleton';
 
 import useKinopoiskService from '../../services/use-kinopoisk-server';
 
@@ -72,7 +73,7 @@ const Slider = () => {
    return (
       <section className="slider">
          <div className="slider__container container">
-            {setContent(process, () => renderSlide(movieList))}
+            {setContent(process, () => renderSlide(movieList), null, Skeleton)}
          </div>
       </section >
    )

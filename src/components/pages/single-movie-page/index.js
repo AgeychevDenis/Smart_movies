@@ -7,8 +7,8 @@ import useKinopoiskService from '../../../services/use-kinopoisk-server';
 
 import './single-movie-page.scss';
 
-import ErrorMessage from '../../../components/error-message/error-message';
-import Spinner from '../../../components/spinner/spinner';
+import ErrorMessage from '../../error-message';
+import Spinner from '../../spinner';
 
 const setContent = (process, Component, data, trailer) => {
    switch (process) {

@@ -1,0 +1,16 @@
+.skeleton-slider {
+   width: 100%;
+   height: 550px;
+   margin-top: 20px;
+   border-radius: 15px;
+   @media (max-width: 1325px) {
+      height: 40vw;
+   }
+   @media (max-width: 890px) {
+      height: 65vw;
+      margin-top: 10px;
+   }
+   @media (max-width: 550px) {
+      height: 85vw;
+   }
+}

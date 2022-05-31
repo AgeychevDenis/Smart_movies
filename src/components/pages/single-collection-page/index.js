@@ -3,10 +3,11 @@ import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 import setContent from '../../../utils/setContent';
-import Breadcrumbs from '../../breadcrumbs/breadcrumbs';
+import Breadcrumbs from '../../breadcrumbs';
+import Skeleton from './skeleton';
 
 import useKinopoiskService from '../../../services/use-kinopoisk-server';
-import CompilationList from '../../compilation-list/compilation-list';
+import CompilationList from '../../compilation-list';
 
 import './single-collection-page.scss'
 
@@ -40,7 +41,7 @@ const SingleCollectionPage = () => {
 
    return (
       <>
-         {setContent(process, View, compilation)}
+         {setContent(process, View, compilation, Skeleton)}
       </>
    )
 }

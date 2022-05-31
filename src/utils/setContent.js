@@ -1,12 +1,12 @@
-import ErrorMessage from '../components/error-message/error-message';
-import Spinner from '../components/spinner/spinner';
+import ErrorMessage from '../components/error-message';
+import Spinner from '../components/spinner';
 
-const setContent = (process, Component, data) => {
+const setContent = (process, Component, data, ComponentLoading = Spinner) => {
    switch (process) {
       case 'waiting':
          return <Spinner />;
       case 'loading':
-         return <Spinner />;
+         return <ComponentLoading />;
       case 'confirmed':
          return <Component data={data} />;
       case 'error':

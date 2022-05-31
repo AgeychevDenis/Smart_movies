@@ -1,6 +1,8 @@
 .skeleton {
+   margin-top: 20px;
    margin-right: 16px;
    @media (max-width: 890px) {
+      margin-top: 10px;
       width: 130px;
       height: 216px;
       overflow: hidden;

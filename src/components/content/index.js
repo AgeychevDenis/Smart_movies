@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import ErrorMessage from '../error-message/error-message';
-import Spinner from '../spinner/spinner';
+import ErrorMessage from '../error-message';
+import Spinner from '../spinner';
 
 import useKinopoiskService from '../../services/use-kinopoisk-server';
 

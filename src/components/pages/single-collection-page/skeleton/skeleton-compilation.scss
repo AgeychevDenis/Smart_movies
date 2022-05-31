@@ -1,0 +1,55 @@
+.skeleton-compilation {
+   @media (max-width: 890px) {
+      &__circle {
+         display: none;
+      }
+      &__img {
+         width: 110px;
+         height: 165px;
+         x: 0;
+      }
+      &__about {
+         y: 430px;
+         x: 0;
+         width: 90vw;
+      }
+      &__genres {
+         x: 0;
+         y: 385px;
+         width: 290px;
+      }
+      &__info-item {
+         x: 120px;
+         height: 67px;
+         width: 150px;
+      }
+      &__ibm {
+         x: 200px;
+         width: 70px;
+      }
+      &__opi {
+         x: 120px;
+         width: 70px;
+      }
+      &__name {
+         x: 120px;
+      }
+      &__breadcrumbs {
+         @media (max-width: 570px) {
+            width: 90vw;
+         }
+      }
+      &__title {
+         height: 30px;
+         @media (max-width: 570px) {
+            width: 80vw;
+         }
+      }
+      &__subtitle {
+      }
+   }
+}
+
+// position: absolute;
+// top: 101px;
+// left: 22px;

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import HeaderMenu from './header-menu/header-menu';
+import HeaderMenu from './header-menu';
 import Device from '../../modules/device';
 import './header.scss';
 

@@ -1,11 +1,11 @@
 import { useState, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import Header from '../header/header';
-import Footer from '../footer/footer';
-import Spinner from '../spinner/spinner'
-import ModalSearch from '../modal-search/modal-search'
-import ModalLogin from '../modal-login/modal-login';
+import Header from '../header';
+import Footer from '../footer';
+import Spinner from '../spinner'
+import ModalSearch from '../modal-search'
+import ModalLogin from '../modal-login';
 
 import {
    Page404,

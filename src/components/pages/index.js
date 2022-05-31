@@ -1,11 +1,11 @@
-import Page404 from './404/404';
+import Page404 from './404';
 import { lazy } from "react";
 
 
-const SingleMoviePage = lazy(() => import('./single-movie-page/single-movie-page'));
-const SingleCollectionPage = lazy(() => import('./single-collection-page/single-collection-page'));
-const AllCollectionPage = lazy(() => import('./all-collection-page/all-collection-page'));
-const SinglePage = lazy(() => import('./single-page/single-page'));
+const SingleMoviePage = lazy(() => import('./single-movie-page'));
+const SingleCollectionPage = lazy(() => import('./single-collection-page'));
+const AllCollectionPage = lazy(() => import('./all-collection-page'));
+const SinglePage = lazy(() => import('./single-page'));
 const MainPage = lazy(() => import('./main-page'));
 
 const PopularPage = () => <SinglePage typeMovie='TOP_100_POPULAR_FILMS' titlePage='Популярное' />

@@ -4,9 +4,9 @@ import SwiperCore, { Navigation, Pagination } from 'swiper';
 import { Link } from 'react-router-dom';
 
 import useKinopoiskService from '../../services/use-kinopoisk-server';
-import ErrorMessage from '../error-message/error-message';
-import Skeleton from '../skeleton/skeleton';
-import Spinner from '../spinner/spinner';
+import ErrorMessage from '../error-message';
+import Skeleton from './skeleton';
+import Spinner from '../spinner';
 
 import PromoIcon from '../../assets/img/icon/sort.svg';
 import './swiper.scss'

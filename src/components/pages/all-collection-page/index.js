@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
-import Spinner from '../../spinner/spinner';
-import ErrorMessage from '../../error-message/error-message';
-import Breadcrumbs from '../../breadcrumbs/breadcrumbs';
+import Spinner from '../../spinner';
+import ErrorMessage from '../../error-message';
+import Breadcrumbs from '../../breadcrumbs';
+import Skeleton from './skeleton';
 
 import useKinopoiskService from '../../../services/use-kinopoisk-server';
 
@@ -13,7 +14,7 @@ import '../../content/content.scss';
 const setContent = (process, Component, newCollectionLoading) => {
    switch (process) {
       case 'waiting':
-         return <Spinner />;
+         return Array(9).fill(0).map((_, i) => <Skeleton key={i} />);
       case 'loading':
          return newCollectionLoading ? <Component /> : <Spinner />;
       case 'confirmed':

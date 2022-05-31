@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import Spinner from '../../spinner/spinner';
+import Spinner from '../../spinner';
 import { Helmet } from 'react-helmet';
-import Breadcrumbs from '../../breadcrumbs/breadcrumbs';
+import Breadcrumbs from '../../breadcrumbs';
 
 import useKinopoiskService from '../../../services/use-kinopoisk-server';
-import ErrorMessage from '../../error-message/error-message';
+import ErrorMessage from '../../error-message';
+import Skeleton from '../../promo/skeleton';
 
 import PromoIcon from '../../../assets/img/icon/sort.svg';
 import '../../promo/promo.scss';
@@ -15,7 +16,7 @@ import './single-page.scss';
 const setContent = (process, Component, newMoviesLoading) => {
    switch (process) {
       case 'waiting':
-         return <Spinner />;
+         return Array(10).fill(0).map((_, i) => <Skeleton style={{ 'marginTop': '0' }} key={i} />);
       case 'loading':
          return newMoviesLoading ? <Component /> : <Spinner />;
       case 'confirmed':
@@ -110,6 +111,7 @@ const SinglePage = ({ typeMovie, titlePage }) => {
             <Breadcrumbs props={breadcrumbs} />
             <h3 className="promo__title title promo-popular__title">{titlePage}</h3>
             <div className="promo__body">
+               {/* <Skeleton style={{ 'marginTop': '0' }} /> */}
                {setContent(process, () => renderItems(movies), newMoviesLoading)}
             </div>
          </div>

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Helmet } from 'react-helmet'
-import Promo from '../promo/promo';
-import Content from '../content/content';
-import ErrorBoundary from '../error-boundary/error-bondary';
-import Slider from '../slider/slider';
+import Promo from '../promo';
+import Content from '../content';
+import ErrorBoundary from '../error-boundary';
+import Slider from '../slider';
 
 const MainPage = () => {
    return (

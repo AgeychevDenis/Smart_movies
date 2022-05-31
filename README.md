@@ -1,4 +1,4 @@
-# **Smart** :clapper
+# **Smart** :clapper:*
 
 ### :earth_asia: [Сайт проекта "Smart - подборки кино"](https://react-smart-movies.vercel.app)
 
@@ -29,7 +29,6 @@ SMART - это ваш помощник по выбору фильмов. Вам 
 <br>
 
 ![sec](https://user-images.githubusercontent.com/83320431/170652096-d350eebf-5eb7-479b-a1c1-8f64ccfb8b5c.gif)
-
 
 ## *Запуск проекта* ▶️
 
