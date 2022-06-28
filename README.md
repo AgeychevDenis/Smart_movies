@@ -65,6 +65,6 @@ yarn start
 ![npm](https://user-images.githubusercontent.com/83320431/164966879-8acaddbe-246d-4c6a-ae5c-02a875e05216.svg)
 ![sass](https://user-images.githubusercontent.com/83320431/164966900-1c8d75fe-7f1a-4288-915f-d799f3399c49.svg)
 
-### Разработал :man
+### Разработал :man:
 
 [AgeychevDenis](https://github.com/AgeychevDenis)
