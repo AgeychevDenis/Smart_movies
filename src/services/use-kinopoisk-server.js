@@ -1,4 +1,5 @@
 import { useHttp } from '../hooks/http.hook';
+import * as dataCollections from '../data/db.json'
 
 const useKinopoiskService = () => {
    const { loading, request, error, clearError, process, setProcess } = useHttp();
@@ -13,18 +14,17 @@ const useKinopoiskService = () => {
    }
 
    const getCollection = async (initial = 0, prev = 9) => {
-      const res = await request('https://myjson.dit.upm.es/api/bins/g6gn');
+      const res = await request('https://mocki.io/v1/7f56e656-8a6e-465c-ad09-76b58944bb0a');
       return res.collection.slice(initial, prev).map(_transformCollection)
    }
 
    const getCompilation = async (id) => {
-      const res = await request('https://myjson.dit.upm.es/api/bins/g6gn');
+      const res = await request('https://mocki.io/v1/7f56e656-8a6e-465c-ad09-76b58944bb0a');
       return res.collection[id]
    }
 
    const getMovieSlider = async () => {
-      const res = await request('https://myjson.dit.upm.es/api/bins/gs2f');
-      return res.data
+      return await request('https://644ed0b31b4567f4d590a11e.mockapi.io/data');
    }
 
    const getMovieByName = async (name) => {
