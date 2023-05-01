@@ -1,5 +1,4 @@
 import { useHttp } from '../hooks/http.hook';
-import * as dataCollections from '../data/db.json'
 
 const useKinopoiskService = () => {
    const { loading, request, error, clearError, process, setProcess } = useHttp();
